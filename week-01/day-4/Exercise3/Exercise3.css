@@ -1,0 +1,29 @@
+
+main{
+    
+}
+
+.North, .South {
+    /*padding: ;*/
+    height: 257px;
+    width: 349px;
+    border: 15px solid #0F84F3;
+    margin: 6px;
+}
+
+.North p, .South p{
+    padding-top: 67px;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin: 0;
+    text-align: center;
+}
+
+.North{
+    background-color: #FB6C67;
+}
+
+.South{
+    background-color: #90E9E6;
+}
