@@ -1,0 +1,11 @@
+p {
+    box-sizing: border-box;
+    width: 358px;
+    height: 143px;
+    background-color: #05919C;
+    padding-top: 21px;
+    padding-left: 16px;
+    border: 5px solid #5AD090;
+    font-size: 36px;
+    word-spacing: 15px;
+}
