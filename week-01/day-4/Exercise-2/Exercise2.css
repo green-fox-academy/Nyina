@@ -1,0 +1,36 @@
+main {
+    /*height: 546px;*/
+    width: 350px;
+    background-color: #0E83F5;
+    padding: 17px;
+    
+}
+
+p {
+    box-sizing: border-box;
+    width: 349px;
+    height: 129px;
+    text-align: center;
+    padding-top: 50px;
+    color: white;
+    font-size: 36px;
+    margin: auto;
+    border: 0px;
+    
+}
+
+p:nth-child(1){
+    background-color: #FB6C67;
+}
+
+p:nth-child(2){
+    background-color: #F4F05F;
+}
+
+p:nth-child(3){
+    background-color: #90E9E6;
+}
+
+p:nth-child(4){
+    background-color: #6990E2;
+}
