@@ -1,0 +1,14 @@
+body{
+    height: 273px;
+    width: 623px;
+    border-width: 12px 98px; 
+    border-style: solid;
+    border-color: beige;
+    
+}
+
+main {
+    background-color: green;
+    height: 100%;
+    width: 100%;
+}
