@@ -31,7 +31,14 @@ main {
 
 .personal_data{
     margin-right: 21px;
+}
 
+#personal_header {
+    margin: 0px 21px 0px 0px;
+}
+
+#contact_header {
+    margin: 0px,
 }
 
 .letters {
