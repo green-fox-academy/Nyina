@@ -41,6 +41,10 @@ namespace GreenFox
             {
                 Console.WriteLine(true);
             }
+            else
+            {
+                Console.WriteLine(false);
+            }
             
 
             int g1 = 350;
@@ -50,14 +54,22 @@ namespace GreenFox
             {
                 Console.WriteLine(true);
             }
+            else
+            {
+                Console.WriteLine(false);
+            }
             
 
 
             Int64 h = 1357988018575474;
             // tell if it has 11 as a divisor (print as a boolean)
-            if (h%11 > 5)
+            if (h%11 == 0)
             {
                 Console.WriteLine(true);
+            }
+            else
+            {
+                Console.WriteLine(false);
             }
             
 
@@ -70,26 +82,35 @@ namespace GreenFox
             {
                 Console.WriteLine(true);
             }
+            else
+            {
+                Console.WriteLine(false);
+            }
 
 
 
-            //int j = 1521;
+            int j = 1521;
             //// tell if j is dividable by 3 or 5 (print as a boolean)
-            //if (j / 3 || j / 5)
-            //{
-            //    Console.WriteLine(true);
-            //}
-            Console.WriteLine(" Is this correct?");
-            double number1 = Math.Pow(5, 2);
-            Console.WriteLine(number1);
+            if (j % 3 == 0 || j % 5 == 0)
+            {
+                Console.WriteLine(true);
+            }
+            else
+            {
+                Console.WriteLine(false);
+            }
+           
            
 
 
             string k = "Apple";
             //fill the k variable with its cotnent 4 times
-            
-
-            //Console.WriteLine(k * 4);
+            int i = 0;
+            while (i < 4)
+            {
+                Console.WriteLine(k);
+                i++;
+            }
             Console.ReadLine();
 
         }
