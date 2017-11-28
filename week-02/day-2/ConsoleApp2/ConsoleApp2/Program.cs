@@ -11,13 +11,17 @@ namespace ConsoleApp2
         static void Main(string[] args)
         {
             string al = "Greenfox";
-
-            static void 
+            Greet(al);
+            
             // - Create a string variable named `al` and assign the value `Greenfox` to it
             // - Create a function called `greet` that greets it's input parameter
             //     - Greeting is printing e.g. `Greetings dear, Greenfox`
             // - Greet `al`
             Console.ReadLine();
+        }
+        public static void Greet(string nev1)
+        {
+            Console.WriteLine("Greeting dear, " + nev1);
         }
     }
 }
