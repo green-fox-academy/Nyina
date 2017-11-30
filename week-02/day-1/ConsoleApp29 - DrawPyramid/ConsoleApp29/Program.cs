@@ -12,18 +12,16 @@ namespace GreenFox
             string star = "*";
             string space = " ";
 
-            for (int circle = 0; circle < number; circle++)
+       
+            int loop = 0;
+            int i = 0;
+            for (int j = number - 1; loop < number && i <= (number * 2) - 1 && j >= 0; loop++, i = i + 2, j--)
             {
-                for (int i = 1; i < number; i++)
-                {
-                    for (int j = number - i; j >= 0; j--)
-                    {
-                        Console.Write(space);
-                        //space.Substring(0);
-                    }
-                    Console.Write(star);
-                    //star += "*";  
-                }
+                Console.Write(space);
+                //space.Substring(0);
+                Console.Write(star);
+                star = star + "*" + "*";
+
                 Console.WriteLine();
             }
             Console.ReadLine();
