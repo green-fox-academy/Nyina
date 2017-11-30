@@ -12,9 +12,9 @@ namespace GreenFox
             string star = "*";
             string space = " ";
 
-            for (int circle = 0; circle < number/2; circle++)
+            for (int circle = 0; circle < number; circle++)
             {
-                for (int i = 1; i < number; i = i + 2)
+                for (int i = 1; i < number; i++)
                 {
                     for (int j = number - i; j >= 0; j--)
                     {
