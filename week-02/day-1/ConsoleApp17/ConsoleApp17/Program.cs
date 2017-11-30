@@ -25,7 +25,7 @@ namespace GreenFox
             }
             Console.WriteLine("Sum: " + sum);
 
-            int average = sum / 5;
+            int average = sum / numbers.Length;
             Console.WriteLine("Average: " + average);
             Console.ReadLine();
 
