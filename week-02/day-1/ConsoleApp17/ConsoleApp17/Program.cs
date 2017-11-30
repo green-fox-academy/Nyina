@@ -8,7 +8,15 @@ namespace GreenFox
         {
 
             Console.WriteLine("Give me 5 numbers");
-            int[] numbers = new int[] {int.Parse(Console.ReadLine())};
+            int[] numbers = new int[5];
+            int inputNumber;
+
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                inputNumber = Convert.ToInt32(Console.ReadLine());
+                numbers[i] += inputNumber;
+            }
 
             int sum = 0;
             for (int i = 0; i < numbers.Length; i++)
