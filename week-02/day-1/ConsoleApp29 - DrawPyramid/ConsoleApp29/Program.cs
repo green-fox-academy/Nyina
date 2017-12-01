@@ -12,30 +12,32 @@ namespace GreenFox
             string star = "*";
             string space = " ";
 
-       
-            int loop = 0;
-            int j = number - 1;
-            for (int i = 1; loop < number && j >= 0 && i < (number * 2) - 1; loop++, j--, i = i + 2)
+            for (int loop = 0; loop < number; loop++)
             {
-                Console.Write(space);
-                //space.Substring(0);
-                Console.Write(star);
+                int j = number - 1;
+                for (int i = 1; j >= 0 && i < (number * 2) - 1; j--, i = i + 2)
+                {
+                    Console.Write(space[j]);
+                    //space.Substring(0);
+                    Console.Write(star[i]);
+                    //star = star + "*" + "*";
+                }
+                Console.WriteLine();
+                Console.ReadLine();
+
                 //star = star + "*" + "*";
 
-                Console.WriteLine(space[j] + star[i]);
+                // Write a program that reads a number from the standard input, then draws a
+                // pyramid like this:
+                //
+                //
+                //    *
+                //   ***
+                //  *****
+                // *******
+                //
+                // The pyramid should have as many lines as the number was
             }
-            Console.ReadLine();
-
-            // Write a program that reads a number from the standard input, then draws a
-            // pyramid like this:
-            //
-            //
-            //    *
-            //   ***
-            //  *****
-            // *******
-            //
-            // The pyramid should have as many lines as the number was
         }
     }
 }
