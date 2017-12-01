@@ -14,15 +14,15 @@ namespace GreenFox
 
        
             int loop = 0;
-            int i = 0;
-            for (int j = number - 1; loop < number && i <= (number * 2) - 1 && j >= 0; loop++, i = i + 2, j--)
+            int j = number - 1;
+            for (int i = 1; loop < number && j >= 0 && i < (number * 2) - 1; loop++, j--, i = i + 2)
             {
                 Console.Write(space);
                 //space.Substring(0);
                 Console.Write(star);
-                star = star + "*" + "*";
+                //star = star + "*" + "*";
 
-                Console.WriteLine();
+                Console.WriteLine(space[j] + star[i]);
             }
             Console.ReadLine();
 
