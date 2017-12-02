@@ -28,9 +28,9 @@ namespace ConsoleApp1
 
             for (int i = 0; i <= numberLength; i++ )
             {
-                Convert.ToDouble(number);
-                Convert.ToDouble(numberLength);
-                result += Math.Pow(numberArray[i], numberLength);
+                double numer= Convert.ToDouble(number);
+                double numberLength1 = Convert.ToDouble(numberLength);
+                result += Math.Pow(numberArray[i], numberLength1);
             }
             Convert.ToInt32(result);
             if (result == number)
