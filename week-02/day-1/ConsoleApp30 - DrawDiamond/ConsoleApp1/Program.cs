@@ -9,26 +9,26 @@ namespace GreenFox
             Console.WriteLine("Give me a number!");
             int number = Convert.ToInt32(Console.ReadLine());
 
-            for(int i = 1; i <= number; i++ )
+            for (int i = 1; i <= number; i++)
             {
-                for(int k = number - 1; k >= 1; k--)
+                for (int k = number - i; k >= 1; k--)
                 {
                     Console.Write(" ");
                 }
-                for (int m = 1; m <= i * 2 -1; m++)
+                for (int m = 1; m <= (i * 2 - 1); m++)
                 {
                     Console.Write("*");
                 }
                 Console.WriteLine();
             }
 
-            for (int h = number + 1; h <= number * 2 -1; h++)
+            for (int i = 1; i <= number - 1; i++)   
             {
-                for (int k = 1; k <= h - number; k++)
+                for (int k = 1; k <= i; k++)        
                 {
                     Console.Write(" ");
                 }
-                for (int m = number * 2 - h; m >= 1; m--)
+                for (int m = (number * 2 - 1) - (i * 2); m >= 1; m--) 
                 {
                     Console.Write("*");
                 }
