@@ -9,35 +9,38 @@ namespace GreenFox
             Console.WriteLine("Give me one number");
             int number = Convert.ToInt32(Console.ReadLine());
 
-            string star = "*";
-            string space = " ";
-
-            for (int loop = 0; loop < number; loop++)
+            for (int i = 1; i <= number; i++)
             {
-                int j = number - 1;
-                for (int i = 1; j >= 0 && i < (number * 2) - 1; j--, i = i + 2)
+              
+
+                for (int k = number - i ;  k >= 1 ; k--)
                 {
-                    Console.Write(space[j]);
-                    //space.Substring(0);
-                    Console.Write(star[i]);
-                    //star = star + "*" + "*";
+                    Console.Write(" ");
                 }
+
+                for (int m = 1; m <= (i * 2 - 1) ; m++)
+                {
+                    Console.Write("*");
+                }
+
                 Console.WriteLine();
-                Console.ReadLine();
-
-                //star = star + "*" + "*";
-
-                // Write a program that reads a number from the standard input, then draws a
-                // pyramid like this:
-                //
-                //
-                //    *
-                //   ***
-                //  *****
-                // *******
-                //
-                // The pyramid should have as many lines as the number was
             }
-        }
+            Console.ReadLine();
+
+
+            // Write a program that reads a number from the standard input, then draws a
+            // pyramid like this:
+            //
+            //
+            //    *
+            //   ***
+            //  *****
+            // *******
+            //
+            // The pyramid should have as many lines as the number was
+
+            Console.ReadLine();
+        }    
+       
     }
 }
