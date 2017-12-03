@@ -7,15 +7,39 @@ namespace Calculator
         public static void Main(string[] args)
         {
             Console.WriteLine("Please type in the expression:");
-            var input = new StringBuilder(operator, num1, num2);
-            Console.ReadLine(input);
-            int num1 = num1.ToInt32;
+            string input = Console.ReadLine();
+            string[] inputArray = input.Split(' ');
 
 
 
-            int result.Operation
+            string operat = inputArray[0];
+            //char operat = Convert.ToChar(inputArray[0]);
+            int number1 = Convert.ToInt32(inputArray[1]);
+            int number2 = Convert.ToInt32(inputArray[2]);
 
+            int result = 0;
+            if (operat == "+")
+            {
+                result = number1 + number2;
+            }
+            if (operat == "-" )
+            {
+                result = number1 - number2;
+            }
+            if (operat == "*")
+            {
+                result = number1 * number2;
+            }
+            if (operat == "/")
+            {
+                result = number1 / number2;
+            }
+            if (operat == "%")
+            {
+                result = number1 % number2;
+            }
 
+            Console.WriteLine(result);
             Console.ReadLine();
 
             // Create a simple calculator application which reads the parameters from the prompt
@@ -33,31 +57,8 @@ namespace Calculator
             // Waits for the user input
             // Print the result to the prompt
             // Exit
-        }
-        
-        static void Operation(char operator, int num1, int num2)
-        {
-            if (char operator = "+")
-            {
-                int result = num1 + num2;
-            }
-            if (operator = "-" )
-            {
-                int result = num1 - num2;
-            }
-            if (operator = "*")
-            {
-                result = num1 * num2;
-            }
-            if (operator = "/")
-            {
-                result = num1 / num2;
-            }
-            if (operator = "%")
-            {
-                result = num1 % num2;
-            }
-            Console.WriteLine(result);
+
+
         }
     }
 }
