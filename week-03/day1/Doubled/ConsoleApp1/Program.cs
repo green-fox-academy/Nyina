@@ -22,12 +22,13 @@ namespace ConsoleApp1
         static string RepeatedLetters(string[] word)
         {
              string[] temp = "";
+             
              for (int i = 0; i < word.Count() - 1; i++)
              {
                 
                  if (word[i] == word[i + 1])
                  {
-                    temp = word[i];
+                    Array.remove(word, i);
                  }
              }
              return word;
