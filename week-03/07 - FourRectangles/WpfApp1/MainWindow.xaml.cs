@@ -34,7 +34,7 @@ namespace FourRectangles
             double ystart = 10;
             double with = 80;
             double heigh = 50;
-            string[] color = { Red, Green, Yellow, Black };
+            Random randomColor = new Random();
 
             for (int i = 0; i < 5; i++)
             {
@@ -43,7 +43,7 @@ namespace FourRectangles
                 with = with + 50;
                 heigh = heigh + 90;
                 foxDraw.DrawRectangle(xstart, ystart, with, heigh);
-                foxDraw.FillColor(Colors.color);
+                foxDraw.FillColor(Color.FromRgb((byte)randomColor.Next(), (byte)randomColor.Next(), (byte)randomColor.Next()));
             }
         }
     }
