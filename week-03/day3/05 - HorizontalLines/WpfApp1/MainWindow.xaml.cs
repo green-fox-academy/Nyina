@@ -35,9 +35,9 @@ namespace HorizontalLines
             foxDraw.StrokeColor(Colors.Green);
             foxDraw.DrawLine(150, 210, 200, 210);
 
-            /*var startPoint = new Point(0, 20);
+            var startPoint = new Point(0, 20);
             var endPoint = new Point(100, 20);
-            foxDraw.DrawLine(startPoint, endPoint);*/
+            foxDraw.DrawLine(startPoint, endPoint);
         }
     }
 }

@@ -22,14 +22,35 @@ namespace GoToCenter
         {
             InitializeComponent();
             var foxDraw = new FoxDraw(canvas);
-            DrawGreenLines(foxDraw);
+            
+            /* Egyszerűbb megoldás
+            DrawGreenLines(foxDraw);*/
+
+            double x = 50;
+            double y = 100;
+            DrawGreenLines(foxDraw, x, y);
+
+
             // create a line drawing function that takes 2 parameters:
             // the x and y coordinates of the line's starting point
             // and draws a line from that point to the center of the canvas.
             // draw 3 lines with that function.
 
         }
-        public static void DrawGreenLines(FoxDraw foxDraw)
+        public static void DrawGreenLines(FoxDraw foxDraw, double x, double y)
+        {
+
+            for (int i=0; i < 3; i++)
+            {
+                x = x + 50;
+                y = y + 100;
+                foxDraw.StrokeColor(Colors.Green);
+                foxDraw.DrawLine(x, y, 260, 120);
+            }
+
+
+            /* Egyszerűbb megoldás:
+            public static void DrawGreenLines(FoxDraw foxDraw)
         {
             foxDraw.StrokeColor(Colors.Green);
             foxDraw.DrawLine(10, 10, 260, 120);
@@ -38,12 +59,10 @@ namespace GoToCenter
             foxDraw.DrawLine(280, 10, 260, 120);
 
             foxDraw.StrokeColor(Colors.Purple);
-            foxDraw.DrawLine(20, 160, 260, 120);
+            foxDraw.DrawLine(20, 160, 260, 120);*/
 
 
-            /*var startPoint = new Point(0, 20);
-            var endPoint = new Point(100, 20);
-            foxDraw.DrawLine(startPoint, endPoint);*/
+
         }
     }
 }
