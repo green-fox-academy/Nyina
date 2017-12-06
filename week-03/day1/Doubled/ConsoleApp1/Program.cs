@@ -14,7 +14,10 @@ namespace ConsoleApp1
             
             string[] DuplText = File.ReadAllLines("duplicated-chars.txt");
 
+            DuplText.Split("\n");
+
             string[] OkText = RepeatedLetters(DuplText);
+
             File.WriteAllLines("OkTxt.txt", OkText);
 
         }
@@ -23,15 +26,15 @@ namespace ConsoleApp1
         {
              string[] temp = "";
              
-             for (int i = 0; i < word.Count() - 1; i++)
+             for (int i = 0; i < word.Length - 1; i++)
              {
                 
                  if (word[i] == word[i + 1])
                  {
-                    Array.remove(word, i);
+                    temp = word[i + 1];
                  }
              }
-             return word;
+             return(word);
            
         }
 
