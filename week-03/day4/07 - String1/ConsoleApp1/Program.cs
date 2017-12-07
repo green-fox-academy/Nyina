@@ -22,15 +22,15 @@ namespace ConsoleApp1
             int n = text.Length;
 
 
-            if (text.IndexOf("x") == -1)
+            if (text.LastIndexOf("x") == -1)
             {
                 return text;
             }
             else
             {
-                Console.WriteLine(changeY(text.IndexOf("x").Replace("x","y"));
 
-                //Console.WriteLine(text.Replace(changeY(text.IndexOf("x"), "y");
+                return changeY(text.Substring(text.Length - 1)) +" y";
+
             }
         }
     }
