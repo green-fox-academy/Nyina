@@ -27,30 +27,36 @@ namespace Checkerboard
             // fill the canvas with a checkerboard pattern.
 
         }
-        public static void DrawRectangle(FoxDraw foxDraw)
+        public static void DrawBlackRectangle(FoxDraw foxDraw)
         {
             double X1 = 0;
             double Y1 = 0;
             double size = 80;
             double X2 = X1 + size;
+            double Y2 = Y1 + size;
 
             for (int i = 1; i < 11; i++)
             {
-                Y1 = Y1 + size * 2;
-                
+                foxDraw.FillColor(Colors.Green);
+                foxDraw.DrawRectangle(X1, Y1, size, size);
+
+
                 for (int k = 1; k < 11; k++)
                 {
                     if (i % 2 == 0)
                     {
-                        X2 = X2 + size;
+                        foxDraw.FillColor(Colors.Green);
+                        foxDraw.DrawRectangle(X2, Y2, size, size);
+                        X2 = X2 + size*2;
                     }
                     else
                     {
+                        foxDraw.FillColor(Colors.Green);
+                        foxDraw.DrawRectangle(X1, Y1, size, size);
                         X1 = X1 + size * 2;
                     }
                 }
-                foxDraw.FillColor(Colors.Green);
-                foxDraw.DrawRectangle(X1, Y1, size, size);
+                Y1 = Y1 + size * 2;
             }
         }
     }
