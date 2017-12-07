@@ -10,7 +10,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Fibonacci(5));
+            Console.WriteLine(Fibonacci(9));
             Console.ReadLine();
 
             // The fibonacci sequence is a famous bit of mathematics, and it happens to
@@ -21,19 +21,19 @@ namespace ConsoleApp1
             // fibonacci number, with n=0 representing the start of the sequence.
         }
 
-        public static int Fibonacci(int number)
+        public static int Fibonacci(int n)
         {
-            if (number == 1)
+            if (n == 1)
             {
                 return 0;
             }
-            else if (number == 2)
+            else if (n == 2 || n == 3)
             {
                 return 1;
             }
             else
-            {
-                Console.WriteLine(number + Fibonacci(number - 1));
+            { 
+                return(Fibonacci(n - 1) + Fibonacci(n - 2));
             }
         }
     }
