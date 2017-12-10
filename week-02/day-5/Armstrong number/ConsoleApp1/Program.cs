@@ -12,27 +12,11 @@ namespace ConsoleApp1
         {
             Console.WriteLine("Give me a number! Let's check together wether it is an Armstrong number!");
             int number = Convert.ToInt32(Console.ReadLine());
-            
-            //int numOfDigits = input.Count(char.IsDigit);
 
-            double result = 0;
-            int numberLength = Length(number);
-            
+            Console.WriteLine(Recursion(1634));
 
-            //char.GetNumericValue(number);
-            //var digits = SeparateTheDigits(number);
-            //var numberList = new int[] { number };
+            /*double result = Recursion(number);
 
-            var digits = number.ToString();
-            var numberArray = digits.ToString();
-
-            for (int i = 0; i <= numberLength; i++ )
-            {
-                double numer= Convert.ToDouble(number);
-                double numberLength1 = Convert.ToDouble(numberLength);
-                result += Math.Pow(numberArray[i], numberLength1);
-            }
-            Convert.ToInt32(result);
             if (result == number)
                 {
                 Console.WriteLine("WOW, You have an Armstorng number!");
@@ -40,17 +24,21 @@ namespace ConsoleApp1
             else
                 {
                 Console.WriteLine("Keep trying!");
-                }
+                }*/
             Console.ReadLine();
-
         }
-        public static int Length(int number)
+        public static int Recursion(int number)
         {
-            number = Math.Abs(number);
-            int length = 1;
-            while ((number /= 10) >= 1)
-                length++;
-            return length;
+            int sumDigits = 0;
+
+            if (number == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return sumDigits = Recursion(number / 10);
+            }
         }
     }
 }

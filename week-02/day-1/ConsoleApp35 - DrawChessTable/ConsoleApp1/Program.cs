@@ -9,31 +9,32 @@ namespace GreenFox
             Console.WriteLine("Give me a number to draw a Chess table");
             int number = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i <= number-1; i++)
+            for (int i = 0; i <= number - 1; i++)
             {
                 for (int k = 0; k <= number; k++)
                 {
-                    if (i % 2 == 0)
+                    if (i % 2 != 0)
                     {
-                        if (k % 2 == 0)
-                        {
-                            Console.Write("%");
-                        }
-                        else
+                        if (k == 0)
                         {
                             Console.Write(" ");
                         }
+                        else
+                        {
+                            Console.Write("%");
+                        }
                     }
                     else
-                        if (k % 2 == 0)
+                    {
+                        if (k == number)
                         {
-                        Console.Write(" ");
+                            Console.Write(" ");
                         }
                         else
                         {
-                        Console.Write("%");
+                            Console.Write("%");
                         }
-
+                    }
                 }
                 Console.WriteLine();
             }

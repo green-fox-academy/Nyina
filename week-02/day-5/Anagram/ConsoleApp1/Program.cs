@@ -36,7 +36,7 @@ namespace ConsoleApp1
                         character++;
                     } 
                 }
-                if (character == string1.Length)
+                if (character == length1)
                 {
                     answer = true;
                 }
