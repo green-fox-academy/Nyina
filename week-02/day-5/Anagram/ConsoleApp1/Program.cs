@@ -20,23 +20,25 @@ namespace ConsoleApp1
         static void Anagram(string string1, string string2)
         {
 
-            List<string> stringOne = new List<string>() {string1};
-            List<string> stringTwo = new List<string>() {string2};
-
             int length1 = string1.Length;
             int length2 = string2.Length;
+
+            char[] string1Array = string1.ToCharArray();
+            char[] string2Array = string2.ToCharArray();
+
+            Array.Sort(string1Array);
+            Array.Sort(string2Array);
+
+            string sortedString1 = string.Join("",string1Array);
+            string sortedString2 = string.Join("",string2Array);
+
             bool answer = true;
-            int character = 0;
+            /* Ez sem és az alatta levő sem kezeli azt az esetet, hogy egy betű az egyszer forduljon elő:*/
 
             if (length1 == length2)
             {
-                for (int i = 0; i < length1; i++){
-                    if (stringOne.Remove(stringTwo[i]))
-                    {
-                        character++;
-                    } 
-                }
-                if (character == length1)
+
+                if (String.Equals(sortedString1, sortedString2))
                 {
                     answer = true;
                 }
@@ -46,6 +48,24 @@ namespace ConsoleApp1
                 }
             }
             Console.WriteLine(answer);
+
+
+            if (length1 == length2)
+            {
+                for (int i = 0; i < length1; i++)
+                {
+                    if (string1Array[i] == string2Array[i])
+                    {
+                        answer = true;
+                    }
+                    else
+                    {
+                        answer = false;
+                        break;
+                    }
+                }
+                Console.WriteLine(answer);
+            }
         }
     }
 
