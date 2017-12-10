@@ -21,25 +21,27 @@ namespace ConsoleApp1
         //meg kell adni, hogy listát adok vissza
         static List<string> RepeatedLetters(string[] file)
         {
-            //listát kell használni, mert a tömbbe nem lehet hozzáadni
+            //listát kell használni, mert egy tömbhöz nem lehet hozzáadni
             List<string> resultResult = new List<string>();
 
-            //ebbe a dupla karaktereket tesszük bele
-            var builder = new StringBuilder();
 
-            //sorok
+            //sorok - a sorok így lesznek tömbből stringek
             foreach (var line in file)
             {
-                //karakterek
+                //azért kell itt felvenni a buildert, hogy minden körnél létrejöjjön és kinullázza azt, amit appendel
+                var builder = new StringBuilder();
+
+                //karakterek - a stringekből karakterek lesznek
                 for (int i = 0; i < line.Length - 1; i++)
                 {
                     if (line[i] == line[i + 1])
                     {
                         //itt tesszük be a dupla karaktereket egyesével, ami egy sorban van
                         builder.Append(line[i + 1]);
+                        i ++;
                     }
                 }
-                //stringbe teszem bele a sort (amit az előbb builder-be tettem dupla karakterenként)
+                //visszafelé csomagolok: stringbe teszem bele a sort (amit az előbb builder-be tettem dupla karakterenként)
                 string result = builder.ToString();
                 //soronként tesszük bele a listába a duplikátumok nélküli sorokat
                 resultResult.Add(result);

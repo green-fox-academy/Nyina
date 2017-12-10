@@ -13,20 +13,32 @@ namespace ConsoleApp1
         {
             string[] input = File.ReadAllLines("ReversedLines.txt");
 
+
             File.WriteAllLines("OK.txt", input);
 
             Console.ReadLine();
 
             // Create a method that decrypts reversed-lines.txt
         }
-        public static string ReversedLines(string[] text)
+        public List<string> ReversedLines(string[] text)
         {
+            List<string> reversedResult = new List<string>();
+
+            var builder = new StringBuilder();
             int forward = 0;
-            for (int i = text.Length - 1; i >= 0; i--)
+
+
+            foreach (var lines in text)
             {
-                text[forward++] = text[i];
+                for (int i = lines.Length - 1; i >= 0; i--)
+                {
+                    lines[forward++] = lines[i];
+                    builder.Append(lines);
+                }
+                string result = builder.ToString();
+                reversedResult.Add(result);
             }
-            return(text);
+            return (reversedResult);
         }
     }
 }
