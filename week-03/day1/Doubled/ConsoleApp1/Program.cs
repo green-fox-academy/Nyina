@@ -11,31 +11,42 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            
             string[] DuplText = File.ReadAllLines("duplicated-chars.txt");
-
-            DuplText.Split("\n");
-
-            string[] OkText = RepeatedLetters(DuplText);
-
-            File.WriteAllLines("OkTxt.txt", OkText);
-
+            //Létre kell hozni egy listát, mert listát ad vissza a függvény, így csak listába tölthető az eredmény
+            List<string> okText = RepeatedLetters(DuplText);
+            File.WriteAllLines("OkTxt.txt", okText);
+            Console.ReadLine();
         }
 
-        static string RepeatedLetters(string[] word)
+        //meg kell adni, hogy listát adok vissza
+        static List<string> RepeatedLetters(string[] file)
         {
-             string[] temp = "";
-             
-             for (int i = 0; i < word.Length - 1; i++)
-             {
-                
-                 if (word[i] == word[i + 1])
-                 {
-                    temp = word[i + 1];
-                 }
-             }
-             return(word);
-           
+            //listát kell használni, mert a tömbbe nem lehet hozzáadni
+            List<string> resultResult = new List<string>();
+
+            //ebbe a dupla karaktereket tesszük bele
+            var builder = new StringBuilder();
+
+            //sorok
+            foreach (var line in file)
+            {
+                //karakterek
+                for (int i = 0; i < line.Length - 1; i++)
+                {
+                    if (line[i] == line[i + 1])
+                    {
+                        //itt tesszük be a dupla karaktereket egyesével, ami egy sorban van
+                        builder.Append(line[i + 1]);
+                    }
+                }
+                //stringbe teszem bele a sort (amit az előbb builder-be tettem dupla karakterenként)
+                string result = builder.ToString();
+                //soronként tesszük bele a listába a duplikátumok nélküli sorokat
+                resultResult.Add(result);
+            }
+            //ezt a listát adjuk vissza
+            return (resultResult);
+ 
         }
 
     }

@@ -35,7 +35,7 @@ namespace Checkerboard
             double X2 = X1 + size * 2;
             double Y2 = Y1 + size * 2;
 
-            for (int i = 1; i < 11; i++)
+            for (int i = 0; i < 11; i++)
             {
                 if (i % 2 == 0)
                 {
@@ -48,7 +48,7 @@ namespace Checkerboard
                     foxDraw.DrawRectangle(X1, Y2, size, size);
 
                 }
-                for (int k = 1; k < 11; k++)
+                for (int k = 0; k < 11; k++)
                 {
                     if (k % 2 == 0)
                     {
