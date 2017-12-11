@@ -9,38 +9,29 @@ namespace Dice
     class Dice
     {
         //a dobás eltárolására hozzuk létre:
-        public int D6 { get; set; }
-        public int reD6 { get; set; }
+
         public int Current { get; set; }
 
         public static Random random = new Random();
 
         //a constructornak ugyanaz a neve, mint a classnak. És arra való, hogy 
 
-        //függvény kell. Ha ide hozzuk léte akkor, példány.tulajdonsággal kell létrehozni
+        //Itt dobunk és annak az értékét adjuk vissza:
         public void Roll()
         {
-            D6 = random.Next(1, 7);  //a második szám már nincs benne, tehát 1-6 közötti számok
-
+            Current = random.Next(1, 7);  //a második szám már nincs benne, tehát 1-6 közötti számok
         }
 
-        public int GetCurrent( Dice dice )
+        //itt tudjuk átadni, hogy ez hányas
+        public int GetCurrent()
         {
-            return dice.D6;
+            return Current;
         }
 
-        public void Reroll()
+        public void ReRoll()
         {
-            if (D6 != 0)
-            {
-                reD6 = random.Next(1, 7);
-            }
-
+            Current = random.Next(1, 7);
         }
 
-        public int Has6()
-        {
-            return;
-        }
     }
 }
