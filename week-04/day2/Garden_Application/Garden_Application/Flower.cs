@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Garden_Application
 {
-    class Flower : Garden
+    class Flower : Plant
     {
-        public double flowerWaterAmount;
-        public double number;
 
-        public Flower(double number)
-            {
-                this.number = number;
-            }
-
-        public double flowerWatering()
+        public Flower(double waterLevel)
         {
-           return flowerWaterAmount = 0.75 * waterAmount;
+            thirstyLevel = 5;
+            this.waterLevel = waterLevel;
+        }
+
+
+        public double Watering()
+        {
+           return waterLevel = 0.75 * waterLevel;
         }
 
     }

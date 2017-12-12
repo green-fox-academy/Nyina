@@ -8,19 +8,44 @@ namespace Garden_Application
 {
     class Garden
     {
-        public int waterFirst = 40;
-        public int waterSecon = 70;
-        public int waterAmount;
+        public double thirstyLevel;
+        public double waterLevel;
+        public int counter;
 
+        /*
+        List<Flower> flowers = new List<Flower>();
+        List<Tree> trees = new List<Tree>();*/
 
-        public int GetFirstWater()
+        List<Plant> plants = new List<Plant>();
+
+        public int plantsContain()
         {
-            return waterAmount += waterFirst;
+            for (int i = 0; i < 2; i++)
+            {
+                plants.Add(Plant);
+                plants.Add(Tree);
+
+                flowers.Add(new Flower());
+                trees.Add(new Flower());
+
+            }
         }
 
-        public int GetSecondWater()
+        
+
+        public int whoIsThirsty()
         {
-            return waterAmount += waterFirst;
+            foreach (var plant in plants)
+            {
+                if (waterLevel < thirstyLevel)
+                {
+                    counter++;
+                }
+                
+            }
+            return counter;
         }
+
+
     }
 }
