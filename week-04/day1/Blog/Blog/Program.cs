@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Blog1;
 
 namespace BlogPost
 {
@@ -10,7 +11,7 @@ namespace BlogPost
     {
         static void Main(string[] args)
         {
-            var blogPost1 = new BlogPost();
+            var blogPost1 = new BlogP();
             blogPost1.Title = "Lorem Ipsum";
             blogPost1.AuthorName = "John Doe";
             blogPost1.PublicationDate = "2000.05.04";
@@ -22,7 +23,7 @@ namespace BlogPost
             Console.WriteLine(blogPost1.Text);
 
 
-            var blogPost2 = new BlogPost();
+            var blogPost2 = new BlogP();
             blogPost2.Title = "Wait but why";
             blogPost2.AuthorName = "Tim Urban";
             blogPost2.PublicationDate = "2010.10.10.";
@@ -34,7 +35,7 @@ namespace BlogPost
             Console.WriteLine(blogPost2.Text);
 
 
-            var blogPost3 = new BlogPost();
+            var blogPost3 = new BlogP();
             blogPost3.Title = "One Engineer Is Trying to Get IBM to Reckon With Trump";
             blogPost3.AuthorName = "William Turton";
             blogPost3.PublicationDate = "2017.03.28.";
@@ -44,6 +45,15 @@ namespace BlogPost
             Console.WriteLine(blogPost3.AuthorName);
             Console.WriteLine(blogPost3.PublicationDate);
             Console.WriteLine(blogPost3.Text);
+
+            //létehozunk egy új péládnyt, amit listának adtunk meg és feltöljünk a postokkal
+            Blog b = new Blog();
+            b.AddBlogPost(blogPost1);
+            b.AddBlogPost(blogPost2);
+            b.AddBlogPost(blogPost3);
+
+            b.RemoveBlogPost(2);
+
             Console.ReadLine();
 
         }
