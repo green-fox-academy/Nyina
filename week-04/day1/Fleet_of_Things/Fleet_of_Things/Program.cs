@@ -27,11 +27,6 @@ namespace Fleet_of_Things
             fleetList.Add(thing4);
 
 
-            Console.WriteLine(thing1);
-            Console.WriteLine(thing2);
-            Console.WriteLine(thing3);
-            Console.WriteLine(thing4);
-
             Console.ReadLine();
 
 
