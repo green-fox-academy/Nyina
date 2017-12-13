@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Garden_Application
 {
-    class Tree : Garden
+    class Tree : Plant
     {
-        public double treerWaterAmount;
-        public double number;
 
-        public Tree(double number)
+        public Tree(double waterLevel)
         {
-            this.number = number;
+            thirstyLevel = 10;
+            this.waterLevel = waterLevel;
         }
 
-        public double treeWatering()
+
+        public double Watering()
         {
-            return treerWaterAmount = 0.4 * waterAmount;
+            return waterLevel = 0.4 * waterLevel;
         }
     }
 }
