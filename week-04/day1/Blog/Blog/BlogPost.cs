@@ -7,7 +7,7 @@ using Blog;
 
 namespace BlogPost 
 {
-    class BlogPost
+    public class BlogPost: Blog.Blog
     {
         public string AuthorName;
         public string Title;

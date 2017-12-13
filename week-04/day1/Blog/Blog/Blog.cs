@@ -5,25 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using BlogPost;
 
-namespace Blog : BlogPost
+namespace Blog 
 {
-    class Blog
+    public class Blog
     {
         //objektumot várunk a listába
-        List<BlogPost> blogposts = new List<BlogPost>();
+        List<BlogPost.BlogPost> blogposts = new List<BlogPost.BlogPost>();
 
 
         //itt pedig a blogpost objektumot adjuk hozzá
-        public void AddBlogPost(BlogPost blogpost)
+        public void AddBlogPost(BlogPost.BlogPost blogpost)
         {
             blogposts.Add(blogpost);
         }
 
-        public void RemoveBlogPost(BlogPost blogpost)
+        public void RemoveBlogPost(BlogPost.BlogPost blogpost, int number)
         {
-            blogposts.Remove(blogpost);
+            blogposts.Remove(blogpost, number);
         }
 
 
-}
+    }
 }

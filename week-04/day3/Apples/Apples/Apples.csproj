@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{65A47056-F04C-4A2B-8464-05D5B4EF30C7}</ProjectGuid>
+    <ProjectGuid>{100B586F-EAD1-45BE-8FC9-5FF41C2DCABA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Blog</RootNamespace>
-    <AssemblyName>Blog</AssemblyName>
+    <RootNamespace>Apples</RootNamespace>
+    <AssemblyName>Apples</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,8 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Blog.cs" />
-    <Compile Include="BlogPost.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
