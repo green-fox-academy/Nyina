@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fleet_of_Things", "Fleet_of_Things\Fleet_of_Things.csproj", "{72B088CB-CC24-4FBD-B865-5B2BE390413E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72B088CB-CC24-4FBD-B865-5B2BE390413E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72B088CB-CC24-4FBD-B865-5B2BE390413E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72B088CB-CC24-4FBD-B865-5B2BE390413E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72B088CB-CC24-4FBD-B865-5B2BE390413E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D0337FD-6EC9-46E4-96ED-04F499FBA334}
+	EndGlobalSection
+EndGlobal

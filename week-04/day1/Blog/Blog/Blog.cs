@@ -12,7 +12,7 @@ namespace Blog1
         //tulajdonságként létrehoztuk
         public List<BlogP> blogposts;
 
-        //konstruktorba értéket kap
+        //konstruktorban értéket kap
         public Blog()
         {
             blogposts = new List<BlogP>();
@@ -32,6 +32,17 @@ namespace Blog1
             {   //nem lehet objektumot kiíratnim ezért egy tulajdonságot be kell írni (ahogyan a Programnál is kezeltem a kiírásokat, mert ott is a tulajdonságokat külön Console.WriteLine-oltam. Ha egyben akarom kiírni, akkor + jeleket kell a tulajdonságok közé írni)
                 Console.WriteLine(blogpost.Title);
             }
+        }
+
+        public void updateBlogPost(BlogP blogposts, BlogP blogposts)
+        {
+            foreach ()
+
+            blogposts[number3] = new List<BlogP>();
+            blogposts.Add(blogposts)
+            blogposts[number3] = blogposts[number1];
+            blogposts[number1] = blogposts[number2];
+            blogposts[number2] = tmp;
         }
 
 

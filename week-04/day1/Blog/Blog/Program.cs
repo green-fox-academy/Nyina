@@ -53,6 +53,7 @@ namespace BlogPost
             b.AddBlogPost(blogPost3);
 
             b.RemoveBlogPost(2);
+            b.updateBlogPost(blogPost1, blogPost2);
 
             Console.ReadLine();
 
