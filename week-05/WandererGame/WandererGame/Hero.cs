@@ -9,14 +9,42 @@ namespace WandererGame
 {
     class Hero
     {
-        private double X1 { set; get; }
-        private double Y1 { set; get; }
+        private double X1 = 0;
+        private double Y1 = 0;
 
-        public Hero(double x1, double y1)
+
+        public Hero(string filename, double x1, double y1)
         {
             X1 = x1;
             Y1 = y1;
         }
+
+
+        public void StepRight(FoxDraw foxDraw)
+        {
+                X1 += 50;
+                foxDraw.AddImage("hero-right.png", X1, Y1);
+        }
+
+        public void StepLeft(FoxDraw foxDraw)
+        {
+            X1 -= 50;
+            foxDraw.AddImage("hero-left.png", X1, Y1);
+        }
+
+        public void StepDown(FoxDraw foxDraw)
+        {
+            Y1 += 50;
+            foxDraw.AddImage("hero-down.png", X1, Y1);
+        }
+
+        public void StepUp(FoxDraw foxDraw)
+        {
+            Y1 -= 50;
+            foxDraw.AddImage("hero-up.png", X1, Y1);
+        }
+
+
 
         /*
         public void KeyDownEvent(object sender, KeyEventArgs e)

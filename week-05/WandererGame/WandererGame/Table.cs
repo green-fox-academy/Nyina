@@ -20,12 +20,6 @@ namespace WandererGame
         }     
 
 
-        public Table(double x1, double y1)
-        {
-            X1 = x1;
-            Y1 = y1;
-        }
-
 
     public void DrawATable(FoxDraw foxDraw)
     {

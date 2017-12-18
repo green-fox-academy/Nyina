@@ -141,5 +141,18 @@ namespace GreenFox
 
             return pointCollection;
         }
+
+        public double GetLeft(UIElement uIElement)
+        {
+            return Canvas.GetLeft(uIElement);
+        }
+
+        public double GetTop(UIElement uIElement)
+        {
+            return Canvas.GetTop(uIElement);
+        }
+
+
+
     }
 }

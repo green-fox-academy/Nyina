@@ -21,12 +21,16 @@ namespace WandererGame
     /// </summary>
     public partial class MainWindow : Window
     {
+        private FoxDraw foxDraw;
+        private Table table;
+        private Hero hero;
+
         public MainWindow()
         {
             InitializeComponent();
-            var foxDraw = new FoxDraw(canvas);
-            var table = new Table(0, 0);
-            var hero = new Hero(0, 0);
+            foxDraw = new FoxDraw(canvas);
+            table = new Table(0, 0);
+            hero = new Hero("hero-down.png", 0, 0);
 
             table.DrawATable(foxDraw);
             table.DrawWall0(foxDraw);
@@ -35,10 +39,30 @@ namespace WandererGame
             table.DrawWall3(foxDraw);
             table.DrawWall4(foxDraw);
 
-            //hero.KeyDownEvent();
+            
 
             Console.ReadLine();
 
+        }
+
+        private void WindowKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Right)
+            {
+                hero.StepRight(foxDraw);
+            }
+            if (e.Key == Key.Left)
+            {
+                hero.StepLeft(foxDraw);
+            }
+            if (e.Key == Key.Down)
+            {
+                hero.StepDown(foxDraw);
+            }
+            if (e.Key == Key.Up)
+            {
+                hero.StepUp(foxDraw);
+            }
         }
 
 
