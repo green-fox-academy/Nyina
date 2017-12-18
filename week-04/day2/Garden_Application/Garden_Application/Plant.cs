@@ -6,21 +6,30 @@ using System.Threading.Tasks;
 
 namespace Garden_Application
 {
-    class Plant
+    public class Plant
     {
-        public double thirstyLevel;
-        public double waterLevel;
+        public double PlantAbsorb { get; set; }
+        public string Name { get; set; }
+        public double WaterLevel { get; set; }
+        public double ThirstyLevel { get; set; }
+        public const double ThirstyLevelFlower = 5;
+        public const double ThirstyLevelTree = 10;
+        public const double PlantAbsorbFlower = 0.75;
+        public const double PlantAbsorbTree = 0.4;
 
-        public bool plantIsThirsty()
+
+        public Plant(string plantName, double waterl, double thirstl, double plantA)
         {
-            if (waterLevel < thirstyLevel)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            this.Name = plantName;
+            this.WaterLevel = waterl;
+            this.ThirstyLevel = thirstl;
+            this.PlantAbsorb = plantA;
         }
+
+        public void WaterIt(int waterAmount)
+        {
+            WaterLevel = WaterLevel + waterAmount * PlantAbsorb;
+        }
+
     }
 }

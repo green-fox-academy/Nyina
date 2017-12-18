@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C3B4A9C8-3862-48E9-908D-460BDBF20E52}</ProjectGuid>
+    <ProjectGuid>{08D4449F-70F1-4BF3-A459-3CB272F557B4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Garden_Application</RootNamespace>
-    <AssemblyName>Garden_Application</AssemblyName>
+    <RootNamespace>Dice2</RootNamespace>
+    <AssemblyName>Dice2</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,10 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Plant.cs" />
+    <Compile Include="Dice.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Garden.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -6,46 +6,52 @@ using System.Threading.Tasks;
 
 namespace Garden_Application
 {
-    class Garden
+    public class Garden
     {
-        public double thirstyLevel;
-        public double waterLevel;
-        public int counter;
+        //Létre kell hozni az üres objektum listát a növényeknek
+        public List<Plant> plants = new List<Plant>();
 
-        /*
-        List<Flower> flowers = new List<Flower>();
-        List<Tree> trees = new List<Tree>();*/
-
-        List<Plant> plants = new List<Plant>();
-
-        public int plantsContain()
+        //Hogy aztán feltölthessük a kertet növényekkel
+        public void AddPlants(Plant plant)
         {
-            for (int i = 0; i < 2; i++)
-            {
-                plants.Add(Plant);
-                plants.Add(Tree);
-
-                flowers.Add(new Flower());
-                trees.Add(new Flower());
-
-            }
+            plants.Add(plant);
         }
 
-        
 
-        public int whoIsThirsty()
+
+        public void GetWater(int WaterLevel)
         {
+            int plantCounter = 0;
+            int waterAmount = 0;
+            Console.WriteLine("Watering with {0}", WaterLevel);
+
             foreach (var plant in plants)
             {
-                if (waterLevel < thirstyLevel)
+                if (plant.WaterLevel < plant.ThirstyLevel)
                 {
-                    counter++;
+                    Console.WriteLine("The {0} needs water", plant.Name);
+                    plantCounter++;
                 }
                 
+                else
+                {
+                    Console.WriteLine("The {0} doesnt need water", plant.Name);
+                } 
             }
-            return counter;
+            if (plantCounter != 0)
+            {
+                waterAmount = (WaterLevel / plantCounter);
+                foreach (var plant in plants)
+                {
+                    if (plant.WaterLevel < plant.ThirstyLevel)
+                    {
+                        plant.WaterIt(waterAmount);
+                        //plant.WaterLevel = plant.WaterLevel + waterAmount * plant.PlantAbsorb;
+                    }
+                }
+            }
         }
-
-
     }
 }
+
+

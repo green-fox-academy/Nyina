@@ -10,29 +10,21 @@ namespace Garden_Application
     {
         static void Main(string[] args)
         {
-            Flower yellow = new Flower(6);
-            Flower blue = new Flower(12);
+            //Egy osztályt példányosítunk
+            Garden gardens = new Garden();
 
-            Tree purple = new Tree(25);
-            Tree orange = new Tree(44);
-
-            for (int i = 0; i <= 1; i++)
-            {
-                if (yellow.waterAmount < 5)
-                {
-                    yellow.GetFirstWater();
-                }
-            }
-
-            for (int i = 0; i <= 1; i++)
-            {
-                if (yellow.waterAmount < 5)
-                {
-                    yellow.GetSecondWater();
-                }
-            }
+            //Ezt az osztályt feltöltjük
+            gardens.AddPlants(new Plant("Yellow Flower", 6, Plant.ThirstyLevelFlower, Plant.PlantAbsorbFlower));
+            gardens.AddPlants(new Plant("Blue Flower", 2, Plant.ThirstyLevelFlower, Plant.PlantAbsorbFlower));
+            gardens.AddPlants(new Plant("Purple Tree", 8, Plant.ThirstyLevelTree, Plant.PlantAbsorbTree));
+            gardens.AddPlants(new Plant("Orange Tree", 3, Plant.ThirstyLevelTree, Plant.PlantAbsorbTree));
 
 
+            gardens.GetWater(0);
+            gardens.GetWater(40);
+            gardens.GetWater(70);
+
+            Console.ReadLine();
         }
     }
 }

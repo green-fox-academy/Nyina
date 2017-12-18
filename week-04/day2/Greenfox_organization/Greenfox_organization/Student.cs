@@ -31,7 +31,7 @@ namespace Greenfox_organization
 
         public override void Introduce()
         {
-            Console.WriteLine("Hi, I'm" + Name + ", a" + Age + "year old" + Gender + "from" + previousOrganization + "who skipped" + skippedDays + "days from the course already.");
+            Console.WriteLine("Hi, I'm " + Name + ", a " + Age + " year old " + Gender + " from " + previousOrganization + " who skipped " + skippedDays + " days from the course already.");
         }
 
         public void SkipDays(int numberOfDays)

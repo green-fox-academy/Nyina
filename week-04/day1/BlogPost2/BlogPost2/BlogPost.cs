@@ -34,7 +34,6 @@ namespace BlogPost2
 
         public void PrintToUpperOrNot(int number)
         {
-
             if (number == 1)
             {
             Console.WriteLine(this.AuthorName);

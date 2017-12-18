@@ -31,7 +31,7 @@ namespace Greenfox_organization
 
         public virtual void Introduce()
         {
-            Console.WriteLine("Hi, I'm" + Name + ", a" + Age + "year old" + Gender + ".");
+            Console.WriteLine("Hi, I'm " + Name + ", a " + Age + " year old " + Gender + ".");
         }
 
         public virtual void GetGoal()

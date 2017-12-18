@@ -24,7 +24,7 @@ namespace Greenfox_organization
 
         public override void Introduce()
         {
-            Console.WriteLine("Hi, I'm" + Name + ", a" + Age + "year old" + Gender + "who represents" + Company + "and hired" + HiredStudents + "students so far.");
+            Console.WriteLine("Hi, I'm " + Name + ", a " + Age + " year old " + Gender + " who represents " + Company + " and hired " + HiredStudents + " students so far.");
         }
 
         public void Hire()

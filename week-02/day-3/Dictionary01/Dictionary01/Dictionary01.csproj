@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C3B4A9C8-3862-48E9-908D-460BDBF20E52}</ProjectGuid>
+    <ProjectGuid>{C81DB549-0169-4DA9-82B7-2A2FF96BCA49}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Garden_Application</RootNamespace>
-    <AssemblyName>Garden_Application</AssemblyName>
+    <RootNamespace>Dictionary01</RootNamespace>
+    <AssemblyName>Dictionary01</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,10 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Plant.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Garden.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
