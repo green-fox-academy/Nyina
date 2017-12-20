@@ -24,6 +24,7 @@ namespace WandererGame
         {
                 X1 += 50;
                 foxDraw.AddImage("hero-right.png", X1, Y1);
+               
         }
 
         public void StepLeft(FoxDraw foxDraw)

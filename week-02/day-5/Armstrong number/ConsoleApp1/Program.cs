@@ -11,34 +11,25 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Console.WriteLine("Give me a number! Let's check together wether it is an Armstrong number!");
-            int number = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine(Recursion(1634));
 
-            /*double result = Recursion(number);
+            //int input = int.Parse(Console.ReadLine());
 
-            if (result == number)
-                {
-                Console.WriteLine("WOW, You have an Armstorng number!");
-                }
-            else
-                {
-                Console.WriteLine("Keep trying!");
-                }*/
+            string input = Console.ReadLine();
+            char[] array = input.ToCharArray();
+
+            /*Rövidebben ugyanez:
+            char[] array = Console.ReadLine().ToCharArray();
+            */
+
+            double sum = 0;
+            foreach (var number in array)
+            {
+                sum += Math.Pow((int)Char.GetNumericValue(number), array.Length);
+            }
+            Console.WriteLine(sum);
+
             Console.ReadLine();
-        }
-        public static int Recursion(int number)
-        {
-            int sumDigits = 0;
-
-            if (number == 0)
-            {
-                return 0;
-            }
-            else
-            {
-                return sumDigits = Recursion(number / 10);
-            }
         }
     }
 }
