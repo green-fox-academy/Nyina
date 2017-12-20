@@ -9,39 +9,47 @@ namespace CandyShop
     class Candyshop
     {
         public double Amount;
+        //a candyshop listája ami üres, de csak sweetek és lollipopok és candyk tölthetőek
         List<Sweets> sweets = new List<Sweets>();
+
+        //olyan mint a függvényeknél a static
+        public const string CANDY = "Candy";
+        public const string LOLLIPOP = "Lollipop";
+
+        public double sugarAmount { get; set; }
 
         public Candyshop(double amount)
         {
             Amount = amount;
         }
 
-        public double SweetCounter(List<Lollipop>lollis, List<Candy> candies)
+
+        public double CandyCounter()
         {
-            double lolliCounter = 0;
             double candyCounter = 0;
-            double sweetCounter = 0;
 
-            foreach (var lolliElement in lollis)
+            foreach (var sweetElement in sweets)
             {
-                lolliCounter++;
+                if (sweetElement is Candy)
+                {
+                    candyCounter++;
+                }
             }
 
-            foreach (var candiElement in candies)
-            {
-                candyCounter++;
-            }
-
-            return sweetCounter = lolliCounter + candyCounter;
+            return candyCounter;
         }
 
-        public double LolliCounter(List<Lollipop> lollis)
+        public double LolliCounter()
         {
             double lolliCounter = 0;
 
-            foreach (var lolliElement in lollis)
+            foreach (var sweetElement in sweets)
             {
-                lolliCounter++;
+                //a listából kiszedi az objektumot és megnézi, hogy úgy hívják-e mint az objektumunkat
+                if (sweetElement is Lollipop)
+                {
+                    lolliCounter++;
+                }
             }
 
             return lolliCounter;
@@ -49,12 +57,12 @@ namespace CandyShop
 
         public void CreateSweets(string sweetType)
         {
-            if (sweetType == "lollipop")
+            if (sweetType == LOLLIPOP)
             {
                 Lollipop lollipop1 = new Lollipop();
                 sweets.Add(lollipop1);
             }
-            else if (sweetType == "candy")
+            else if (sweetType == CANDY)
             {
                 Candy candy1 = new Candy();
                 sweets.Add(candy1);
@@ -63,7 +71,10 @@ namespace CandyShop
 
         public void PrintInfo()
         {
-            
+            foreach (var sweet in sweets)
+            {
+                Console.WriteLine("Invetory: {0} candies, {1} lollipops, Income: {3}'$', Sugar: {4}gr", LolliCounter(), CandyCounter(), Amount, sugarAmount);
+            }
         }
 
         public void Raise(double number)
@@ -72,17 +83,42 @@ namespace CandyShop
             {
                 double result;
 
-                if (sweet.Type == "lollipop")
+                //a listából kiszedi az objektumot és megnézi, hogy úgy hívják-e mint az objektumunkat
+                if (sweet is Lollipop)
                 {
-                    result = number * sweet.Price;
+                    result = (number / 100) * sweet.Price;
                 }
-                else if (sweet.Type == "candy")
+                else if (sweet is Candy)
                 {
-                    result = number * sweet.Price;
+                    result = (number / 100) * sweet.Price;
                 }
             }
-
         }
+
+        public void Sell(string sweetType, int numberOfSweets)
+        {
+            foreach (var sweet in sweets)
+            {
+                if (sweet is Lollipop)
+                {
+                    Lollipop lollipop1 = new Lollipop();
+                    sweets.Remove(lollipop1);
+                }
+                else if (sweet is Candy)
+                {
+                    Candy candy1 = new Candy();
+                    sweets.Remove(candy1);
+                }
+            }
+        }
+
+        public void BuySugar(int sugarNumber)
+        {
+            sugarAmount += sugarNumber * 10;
+            Amount -= sugarNumber;
+        }
+
+
 
     }
 }
