@@ -10,13 +10,23 @@ namespace CandyShop
     {
         static void Main(string[] args)
         {
-            Candyshop MyCandyshop = new Candyshop(300);
-            Lollipop Lollipop1 = new Lollipop();
-            CandyShop.CreateSweets(CandyShop.Lollipop);
-            Lollipop Lollipop2 = new Lollipop();
+            Candyshop Candyshop = new Candyshop(300);
+            Candyshop.CreateSweets(Candyshop.CANDY);
+            Candyshop.CreateSweets(Candyshop.CANDY);
+            Candyshop.CreateSweets(Candyshop.LOLLIPOP);
+            Candyshop.CreateSweets(Candyshop.LOLLIPOP);
+            Candyshop.PrintInfo();
+            Console.WriteLine(Candyshop.Sell(Candyshop.LOLLIPOP, 1));
+            Console.WriteLine(Candyshop.Sell(Candyshop.CANDY, 1));
+            Candyshop.PrintInfo();
+            Candyshop.Raise(5);
+            Candyshop.Sell(Candyshop.LOLLIPOP, 1);
+            Candyshop.PrintInfo();
+            Candyshop.BuySugar(300);
+            Candyshop.PrintInfo();
 
-            Candy Candy1 = new Candy();
-            Candy Candy2 = new Candy();
+            Console.ReadLine();
+
         }
     }
 }

@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CandyShop
+namespace TakeMeToThe
 {
     public class Lollipop : Sweets
     {
-        public Lollipop ()
+        public Lollipop() : base(10, 5, "lollipop")
         {
-            Price = 10;
-            SugarMade = 5;
+
         }
     }
 }

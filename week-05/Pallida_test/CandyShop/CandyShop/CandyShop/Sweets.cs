@@ -10,7 +10,8 @@ namespace CandyShop
     {
         public double Price { get; set; }
         public double SugarMade { get; set; }
-        public string Type { get; set; }
+        /*Ha nem használtam volna konstruktort, akkor lehettt volna a Type-pal dolgozni
+        public string Type { get; set; } */
 
         public Sweets ()
         {

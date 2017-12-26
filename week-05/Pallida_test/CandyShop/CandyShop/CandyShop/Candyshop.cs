@@ -8,7 +8,7 @@ namespace CandyShop
 {
     class Candyshop
     {
-        public double Amount;
+        
         //a candyshop listája ami üres, de csak sweetek és lollipopok és candyk tölthetőek
         List<Sweets> sweets = new List<Sweets>();
 
@@ -16,18 +16,17 @@ namespace CandyShop
         public const string CANDY = "Candy";
         public const string LOLLIPOP = "Lollipop";
 
+        public double Amount { get; set; } = 0;
         public double sugarAmount { get; set; }
-
-        public Candyshop(double amount)
+        public Candyshop(double amountOfSugar)
         {
-            Amount = amount;
+            sugarAmount = amountOfSugar;
         }
 
 
         public double CandyCounter()
         {
             double candyCounter = 0;
-
             foreach (var sweetElement in sweets)
             {
                 if (sweetElement is Candy)
@@ -35,14 +34,12 @@ namespace CandyShop
                     candyCounter++;
                 }
             }
-
             return candyCounter;
         }
 
         public double LolliCounter()
         {
             double lolliCounter = 0;
-
             foreach (var sweetElement in sweets)
             {
                 //a listából kiszedi az objektumot és megnézi, hogy úgy hívják-e mint az objektumunkat
@@ -51,74 +48,81 @@ namespace CandyShop
                     lolliCounter++;
                 }
             }
-
             return lolliCounter;
         }
 
         public void CreateSweets(string sweetType)
+        //public void CreateSweets(string sweetType)
         {
+            double lolliCounter = 0;
+            double candyCounter = 0;
             if (sweetType == LOLLIPOP)
             {
                 Lollipop lollipop1 = new Lollipop();
                 sweets.Add(lollipop1);
+                sugarAmount-=5;
+                lolliCounter++;
             }
             else if (sweetType == CANDY)
             {
                 Candy candy1 = new Candy();
                 sweets.Add(candy1);
+                sugarAmount-=10;
+                candyCounter++;
             }
         }
 
         public void PrintInfo()
         {
-            foreach (var sweet in sweets)
-            {
-                Console.WriteLine("Invetory: {0} candies, {1} lollipops, Income: {3}'$', Sugar: {4}gr", LolliCounter(), CandyCounter(), Amount, sugarAmount);
-            }
+            //mivel a metódusokat használom az összesítéshez, ezért tuti jó az érték
+            Console.WriteLine("Invetory: {0} candies, {1} lollipops, Income: {2}'$', Sugar: {3}gr", LolliCounter(), CandyCounter(), Amount, sugarAmount);
         }
 
         public void Raise(double number)
         {
             foreach (var sweet in sweets)
             {
-                double result;
-
                 //a listából kiszedi az objektumot és megnézi, hogy úgy hívják-e mint az objektumunkat
                 if (sweet is Lollipop)
                 {
-                    result = (number / 100) * sweet.Price;
+                    sweet.Price = (number / 100.0) * sweet.Price;
                 }
                 else if (sweet is Candy)
                 {
-                    result = (number / 100) * sweet.Price;
+                    sweet.Price = (number / 100.0) * sweet.Price;
                 }
             }
         }
 
-        public void Sell(string sweetType, int numberOfSweets)
+
+        public double Sell(string sweetType, int numberOfSweets)
         {
-            foreach (var sweet in sweets)
+            for (int j = 0; j < numberOfSweets; j++)
             {
-                if (sweet is Lollipop)
+                foreach (var sweet in sweets)
                 {
-                    Lollipop lollipop1 = new Lollipop();
-                    sweets.Remove(lollipop1);
-                }
-                else if (sweet is Candy)
-                {
-                    Candy candy1 = new Candy();
-                    sweets.Remove(candy1);
+                    if (sweet is Lollipop && sweetType == LOLLIPOP)
+                    {
+                        sweets.Remove(sweet);
+                        Amount = Amount + sweet.Price;
+                        break;
+                    }
+                    else if (sweet is Candy && sweetType == CANDY)
+                    {
+                        sweets.Remove(sweet);
+                        Amount = Amount + sweet.Price;
+                        break;
+                    }
                 }
             }
+            return Amount;
         }
 
-        public void BuySugar(int sugarNumber)
+        public void BuySugar(int boughtSugar)
         {
-            sugarAmount += sugarNumber * 10;
-            Amount -= sugarNumber;
+            sugarAmount += boughtSugar;
+            Amount -= boughtSugar / 10;
         }
-
-
 
     }
 }

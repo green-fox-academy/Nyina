@@ -12,7 +12,6 @@ namespace CandyShop
         {
             Price = 20;
             SugarMade = 10;
-            Type = "candy";
         }
     }
 }

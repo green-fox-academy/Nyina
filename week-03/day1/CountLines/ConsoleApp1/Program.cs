@@ -23,6 +23,7 @@ namespace ConsoleApp1
         {
             string[] array = { };
 
+
             try
             {
                 array = File.ReadAllLines(filename, Encoding.Default);
