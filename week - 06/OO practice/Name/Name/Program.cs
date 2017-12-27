@@ -13,6 +13,7 @@ namespace Name
             Name name2 = new Name();
             Name name1 = new Name();
 
+            //A megoldás esetén:
             //name1.SetName();
             //Console.WriteLine(name1.GetName());
             //name2.SetName();
