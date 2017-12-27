@@ -16,29 +16,32 @@ namespace DeleteTheComments
             Console.ReadLine();
 
         }
-        /*
+        
         public static void DeleteComments(string filename)
         {
             string characters = "//";
 
             string[] lines = File.ReadAllLines(filename);
+            List<string> linesList = new List<string>(lines);
 
-            foreach (var line in lines)
+            for (int i = 0; i < linesList.Count; i++)
             {
-                if (line.Contains(characters))
+                if (linesList[i].Contains(characters))
                 {
-                    line.Remove(0, line.Length);
+                    linesList.RemoveAt(i);
                 }
             }
-            File.WriteAllLines(filename, lines);
-            foreach (var line in lines)
+
+            string[] linesArray = linesList.ToArray();
+            File.WriteAllLines(filename, linesArray);
+            foreach (var arrayElements in linesArray)
             {
-                Console.WriteLine(line);
+                Console.WriteLine(arrayElements);
             }
         }
-        */
+       
 
-
+        /* 
         public static void DeleteComments(string filename)
         {
             string characters = "//";
@@ -52,6 +55,21 @@ namespace DeleteTheComments
                 outOfCommentedLines.Add(line);
             }
 
+            for (int i = 0; i < outOfCommentedLines.Count; i++)
+            {
+                if (outOfCommentedLines[i].Contains("//"))
+                {
+                    outOfCommentedLines.RemoveAt(i);
+                }
+            }
+
+            File.WriteAllLines(filename, outOfCommentedLines);
+            foreach (var outOfCommentedLine in outOfCommentedLines)
+            {
+                Console.WriteLine(outOfCommentedLine);
+            }
+            */
+            /*
             foreach (var outOfCommentedLine in outOfCommentedLines)
             {
                 if (outOfCommentedLine.Contains(characters))
@@ -72,7 +90,8 @@ namespace DeleteTheComments
             {
                 Console.WriteLine(outOfCommentedLine);
             }
+            
         }
-
+        */
     }
 }
