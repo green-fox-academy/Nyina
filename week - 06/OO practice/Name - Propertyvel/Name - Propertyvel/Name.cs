@@ -46,15 +46,9 @@ namespace Name___Propertyvel
             return lastname;
         }
 
-
         public string getName()
         {
             return setFirstName(FirstName) + " " + setLastName(LastName);
         }
-
-
-
-
-
     }
 }

@@ -18,10 +18,8 @@ namespace Name___Propertyvel
 
             Console.ReadLine();
 
-
             //Ugyanazt kell csinálni, mint az előzőnél, csak propertyvel
             //A különbség, hogy az összefésülést Name propertyvel kell megoldani majd
-            
         }
     }
 }
