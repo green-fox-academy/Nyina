@@ -53,6 +53,24 @@ namespace Dictionary02Vol2
             // Display the following things:
             //  - Who has got more candies than 4 candies
             //  - Sum the age of people who have lass than 5 candies
+
+            double sum = 0;
+            foreach (var mapElement in map)
+            {
+                //elég csak a Convert.ToInt32(mapElement["candies"]) > 4) -t kiírni
+                if (mapElement.ContainsKey("candies") && Convert.ToInt32(mapElement["candies"]) > 4)
+                {
+                    Console.WriteLine(mapElement["name"]);
+                }
+
+                if (Convert.ToInt32(mapElement["candies"]) < 5)
+                {
+                    sum += Convert.ToDouble(mapElement["age"]);
+                }
+            }
+            Console.WriteLine(sum);
+            Console.ReadLine();
+
         }
     }
 }
