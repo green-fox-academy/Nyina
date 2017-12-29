@@ -13,9 +13,6 @@ namespace Name___Propertyvel
             Name name1 = new Name("ádám", "krajcs");
             Name name2 = new Name("nyina", "dobi");
 
-            //Console.WriteLine(name1.getName());
-            //Console.WriteLine(name2.getName());
-
             Console.WriteLine(name1.getName());
             Console.WriteLine(name2.getName());
 

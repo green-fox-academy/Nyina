@@ -8,7 +8,7 @@ namespace Name___Propertyvel
 {
     class Name
     {
-
+        //A megoldás: construktorban állítom be az 1. betű nagybetűt
         //protected string FirstName { get; set; }
         //protected string LastName { get; set; }
 
@@ -23,6 +23,8 @@ namespace Name___Propertyvel
         //    return FirstName + " " + LastName;
         //}
 
+
+        //B megoldás: külön funkcióban növelem az 1. betű méretét és ezeket a funkciókat teszem bele a kiíratásba
         protected string FirstName { get; set; }
         protected string LastName { get; set; }
 
@@ -31,33 +33,6 @@ namespace Name___Propertyvel
             this.FirstName = firstName;
             this.LastName = lastName;
         }
-
-        //string FirstName;
-        //string LastName;
-
-        //public string firstName
-        //{
-        //    get
-        //    {
-        //        return this.FirstName;
-        //    }
-        //    set
-        //    {
-        //        this.FirstName = value;
-        //    }
-        //}
-
-        //public string lastName
-        //{
-        //    get
-        //    {
-        //        return this.LastName;
-        //    }
-        //    set
-        //    {
-        //        this.LastName = value;
-        //    }
-        //}
 
         public string setFirstName(string firstname)
         {
@@ -70,6 +45,7 @@ namespace Name___Propertyvel
             lastname = char.ToUpper(lastname[0]) + lastname.Substring(1);
             return lastname;
         }
+
 
         public string getName()
         {
