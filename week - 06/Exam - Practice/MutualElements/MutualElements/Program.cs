@@ -47,9 +47,7 @@ namespace MutualElements
                     counter++;
                 }
             }
-
             return mutualList;
         }
-
     }
 }
