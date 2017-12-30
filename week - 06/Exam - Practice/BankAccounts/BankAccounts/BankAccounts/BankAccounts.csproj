@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2C8ED9F3-1205-454F-A463-9F9946AF34CF}</ProjectGuid>
+    <ProjectGuid>{12572960-2E35-4205-A39A-686950498071}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Bank_accounts</RootNamespace>
-    <AssemblyName>Bank-accounts</AssemblyName>
+    <RootNamespace>BankAccounts</RootNamespace>
+    <AssemblyName>BankAccounts</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car.cs" />
+    <Compile Include="Currency.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
