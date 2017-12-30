@@ -10,9 +10,9 @@ namespace BankAccounts
     {
         protected string name;
         protected string pin;
-        protected int currency;
+        protected Currency currency;
 
-        public BankAccount(string name, string pin, int currency)
+        public BankAccount(string name, string pin, Currency currency)
         {
             this.name = name;
             this.pin = pin;
@@ -23,9 +23,9 @@ namespace BankAccounts
         {
             if (parameter > 0)
             {
-                currency += parameter;
+                currency.value += parameter;
             }
-            return currency;
+            return currency.value;
         }
 
         // Create a withdraw method with two parameters: a pin code and an amount.
@@ -36,9 +36,9 @@ namespace BankAccounts
 
         public int Withdraw(string pinCode, int amount)
         {
-            if (pinCode == pin && currency > amount)
+            if (pinCode == pin && currency.value > amount)
             {
-                amount = currency - amount;
+                amount = currency.value - amount;
             }
             else
             {
