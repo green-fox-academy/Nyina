@@ -26,6 +26,14 @@ namespace Name___Propertyvel___get___set
                 //Ez lenne itt, ezért kell a firstname helyére a value-t írni
                 //this.FirstName = value;
                 this.FirstName = char.ToUpper(value[0]) + value.Substring(1);
+
+                //Ha exception-nel szeretnénk hibát kezelni, akkor pl így lehetne:
+                //if (value != "ádám")
+                //throw new Exception("It's not a firstname");
+                //vagy pl:
+                //if (value != "ádám")
+                //throw new Exception("It's not a firstname");
+
             }
         }
 

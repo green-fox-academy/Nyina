@@ -15,7 +15,7 @@ namespace Name___Propertyvel___get___set
             Name name2 = new Name();
 
             //mivel az objektum tulajdonsága, ezért kell meghívni a példány mögött
-            name1.firstName = "ádám";
+            name1.firstName = "2";
             name1.lastName = "krajcs";
             name2.firstName = "nyina";
             name2.lastName = "dobi";
