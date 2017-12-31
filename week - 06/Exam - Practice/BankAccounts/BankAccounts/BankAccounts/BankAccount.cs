@@ -10,22 +10,23 @@ namespace BankAccounts
     {
         protected string name;
         protected string pin;
-        protected Currency currency;
+        //public propertynek kell lennie,  mert a Bankból is el szeretném érni
+        public Currency Currency { get; set; }
 
         public BankAccount(string name, string pin, Currency currency)
         {
             this.name = name;
             this.pin = pin;
-            this.currency = currency;
+            this.Currency = currency;
         }
 
         public int Deposit(int parameter)
         {
             if (parameter > 0)
             {
-                currency.value += parameter;
+                Currency.Value += parameter;
             }
-            return currency.value;
+            return Currency.Value;
         }
 
         // Create a withdraw method with two parameters: a pin code and an amount.
@@ -36,15 +37,16 @@ namespace BankAccounts
 
         public int Withdraw(string pinCode, int amount)
         {
-            if (pinCode == pin && currency.value > amount)
+            int money = 0;
+            if (pinCode == pin && Currency.Value > amount)
             {
-                amount = currency.value - amount;
+                money = Currency.Value - amount;
             }
             else
             {
-                amount = 0;
+                money = 0;
             }
-            return amount;
+            return money;
         }
     }
 }

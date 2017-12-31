@@ -10,11 +10,13 @@ namespace BankAccounts
     {
         protected string code;
         protected string centralBankName;
-        protected int value;
+        public int Value { get; set; }
+
+
 
         public Currency(int value)
         {
-            this.value = value;
+            this.Value = value;
         }
 
 

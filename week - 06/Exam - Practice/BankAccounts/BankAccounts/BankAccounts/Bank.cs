@@ -23,7 +23,7 @@ namespace BankAccounts
         {
             foreach (var bankAccountElement in bankAccount)
             {
-                sum += currency.value;
+                sum += bankAccountElement.Currency.Value;
             }
             return sum;
         }
