@@ -12,13 +12,9 @@ namespace BankAccounts
         protected string centralBankName;
         public int Value { get; set; }
 
-
-
         public Currency(int value)
         {
             this.Value = value;
         }
-
-
     }
 }
