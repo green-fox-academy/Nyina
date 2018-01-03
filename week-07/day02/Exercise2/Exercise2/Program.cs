@@ -4,22 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise1
+namespace Exercise2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Write a LINQ Expression to get the even numbers from the following array:
-
+            //Write a LINQ Expression to get the average value of the odd numbers from the following array:
             int[] n = { 1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14 };
 
-            var evenNumbers = n.Where(a => a % 2 == 0).ToList();
+            double oddNumbers = n.Where(x => x % 2 != 0).Average();
 
-            evenNumbers.ForEach(i => Console.WriteLine($"[{i}]"));
+            Console.WriteLine(oddNumbers);
 
             Console.ReadLine();
-
         }
     }
 }
