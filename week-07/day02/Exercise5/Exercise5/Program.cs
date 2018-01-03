@@ -18,16 +18,12 @@ namespace Exercise5
                                      .GroupBy(k => k)
                                      .ToDictionary(x => x.Key, x => x.Count());
 
-
             foreach (int number in frequencyOfNumbers.Keys)
             {
                 Console.WriteLine("{0}:{1}", number, frequencyOfNumbers[number]);
             }
 
-
-
             Console.ReadLine();
-
         }
     }
 }
