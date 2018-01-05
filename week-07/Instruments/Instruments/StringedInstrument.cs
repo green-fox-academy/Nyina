@@ -10,6 +10,6 @@ namespace Instruments
     {
         public int NumberOfStrings { get; set; }
 
-        public abstract void Sound();
+        public abstract string Sound();
     }
 }

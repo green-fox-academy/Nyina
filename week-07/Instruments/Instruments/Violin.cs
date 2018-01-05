@@ -8,15 +8,23 @@ namespace Instruments
 {
     class Violin : StringedInstrument
     {
+        public string SoundViolin { get; set; }
+
         public Violin(int stringsNumber)
         {
-            NumberOfStrings = 4;
+            this.NumberOfStrings = stringsNumber;
             Name = "Violin";
+            SoundViolin = "Screech";
         }
 
-        public override void Sound()
+        public override string Sound()
         {
-            Console.WriteLine("Screech");
+            return SoundViolin;
+        }
+
+        public override void Play()
+        {
+            Console.WriteLine("{0}, a {1}-stringed instrument that {2}", Name, NumberOfStrings.ToString(), Sound());
         }
     }
 }
