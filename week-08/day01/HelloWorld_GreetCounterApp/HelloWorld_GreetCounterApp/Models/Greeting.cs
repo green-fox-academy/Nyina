@@ -13,7 +13,7 @@ namespace HelloWorld.Models
         public Greetings(long id, string name)
         {
             Id = id;
-            Content = $"Hello,{name}!";
+            Content = $"Hello, {name}!";
         }
 
         public Greetings()
