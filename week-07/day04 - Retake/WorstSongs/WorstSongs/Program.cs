@@ -14,7 +14,7 @@ namespace WorstSong
     {
         public static void Main(string[] args)
         {
-            Dictionary<string, int> worstSongs = getSongDictionary(fileReader());
+            Dictionary<string, int> worstSongs = GetSongDictionary(fileReader("100Worst.csv"));
 
             foreach (KeyValuePair<string, int> pair in worstSongs)
             {
@@ -30,7 +30,7 @@ namespace WorstSong
             return lines;
         }
 
-        public static Dictionary<string, int> getSongDictionary(string[] lines)
+        public static Dictionary<string, int> GetSongDictionary(string[] lines)
         {
             var songsDictionary = new Dictionary<string, int>();
 
