@@ -4,11 +4,17 @@
     <title></title>
 </head>
 <body>
-    @foreach (var account in @Model.BankAccountList)
-    {
-        <p>Name: @account.Name</p>
-        <p>Balance: @account.Balance @account.Currency</p>
-        <p>AnimalType: @account.AnimalType</p>
-    }
+    <table>
+        @foreach (var account in @Model.BankAccountList)
+        {
+            <tr>
+                <td>Name: @account.Name</td>
+                <td>Balance: @account.Balance @account.Currency</td>
+                <td>AnimalType: @account.AnimalType</td>
+                <td>Index: @Model.BankAccountList.IndexOf(account)</td>
+            </tr>
+        }
+    </table>
+
 </body>
 </html>
