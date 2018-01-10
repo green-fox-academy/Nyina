@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="~/style.css">
 </head>
 <body>
-    <table>
+    <table style="width: 100%; color: blueviolet ">
         @foreach (var account in @Model.BankAccountList)
         {
             <tr>
@@ -14,7 +14,7 @@
                 <td>AnimalType: @account.AnimalType</td>
                 @if (account.Owner.Equals("King"))
                 {
-                    <td style="width: 25%; background: green">Owner: @account.Owner</td>
+                    <td style="width: 25%; background: yellow">Owner: @account.Owner</td>
                 }
                 else
                 {
