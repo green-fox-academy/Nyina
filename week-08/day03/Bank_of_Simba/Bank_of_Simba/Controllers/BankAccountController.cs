@@ -11,7 +11,14 @@ namespace Bank_of_Simba.Controllers
     [Route("Simba")]
     public class BankAccountController : Controller
     {
-        public static BankAccount BankAccount = new BankAccount();
+        //Az osztály 1 példányát hozom létre és ezt adom a View-hoz (lentebb)
+        public static BankAccountViewModel bankAccountVM = new BankAccountViewModel();
+
+        [HttpGet("")]
+        public IActionResult Index()
+        {
+            return View(bankAccountVM);
+        }
 
     }
 }

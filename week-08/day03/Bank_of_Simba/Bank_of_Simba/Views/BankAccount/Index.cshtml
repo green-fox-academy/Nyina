@@ -4,5 +4,11 @@
     <title></title>
 </head>
 <body>
+    @foreach (var account in @Model.BankAccountList)
+    {
+        <p>Name: @account.Name</p>
+        <p>Balance: @account.Balance @account.Currency</p>
+        <p>AnimalType: @account.AnimalType</p>
+    }
 </body>
 </html>

@@ -20,10 +20,38 @@ namespace Bank_of_Simba.ViewModel
             BankAccountList.Add(new BankAccount()
             {
                 Name = "Simba",
-                Balance = "2000",
+                Balance = 2000.00,
+                Currency = "Zebra",
                 AnimalType = "Animal.Lion",
             });
-
+            BankAccountList.Add(new BankAccount()
+            {
+                Name = "Timon",
+                Balance = 1100.00,
+                Currency = "Zebra",
+                AnimalType = "Animal.Meerkat",
+            });
+            BankAccountList.Add(new BankAccount()
+            {
+                Name = "Pumbaa",
+                Balance = 900.00,
+                Currency = "Zebra",
+                AnimalType = "Animal.Warthog",
+            });
+            BankAccountList.Add(new BankAccount()
+            {
+                Name = "Nala",
+                Balance = 2100.00,
+                Currency = "Zebra",
+                AnimalType = "Animal.Lion",
+            });
+            BankAccountList.Add(new BankAccount()
+            {
+                Name = "Rafiki",
+                Balance = 2200.00,
+                Currency = "Zebra",
+                AnimalType = "Animal.Monkey",
+            });
         }
     }
 }
