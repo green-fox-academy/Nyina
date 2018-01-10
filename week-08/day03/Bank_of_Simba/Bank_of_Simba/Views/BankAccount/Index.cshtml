@@ -20,6 +20,15 @@
                 {
                     <td>Owner: @account.Owner</td>
                 }
+                @if (account.GuyType.Equals(true))
+                { 
+                    <td>Good one</td>
+                }
+                else
+                {
+                    <td>Bad guy</td>
+                }
+                @*
                 @switch (account.GuyType)
                 {
                     case true:
@@ -29,6 +38,7 @@
                     <td>Bad guy</td>
                     break;
                 }
+                *@
                 <td>Index: @Model.BankAccountList.IndexOf(account)</td>
             </tr>
         }
