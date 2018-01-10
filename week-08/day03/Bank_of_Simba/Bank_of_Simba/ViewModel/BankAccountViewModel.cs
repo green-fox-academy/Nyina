@@ -23,6 +23,7 @@ namespace Bank_of_Simba.ViewModel
                 Balance = 2000.00,
                 Currency = "Zebra",
                 AnimalType = "Animal.Lion",
+                Owner = "King",
             });
             BankAccountList.Add(new BankAccount()
             {
@@ -30,6 +31,7 @@ namespace Bank_of_Simba.ViewModel
                 Balance = 1100.00,
                 Currency = "Zebra",
                 AnimalType = "Animal.Meerkat",
+                Owner = "Timon",
             });
             BankAccountList.Add(new BankAccount()
             {
@@ -37,6 +39,7 @@ namespace Bank_of_Simba.ViewModel
                 Balance = 900.00,
                 Currency = "Zebra",
                 AnimalType = "Animal.Warthog",
+                Owner = "Pumbaa",
             });
             BankAccountList.Add(new BankAccount()
             {
@@ -44,6 +47,7 @@ namespace Bank_of_Simba.ViewModel
                 Balance = 2100.00,
                 Currency = "Zebra",
                 AnimalType = "Animal.Lion",
+                Owner = "Nala",
             });
             BankAccountList.Add(new BankAccount()
             {
@@ -51,6 +55,7 @@ namespace Bank_of_Simba.ViewModel
                 Balance = 2200.00,
                 Currency = "Zebra",
                 AnimalType = "Animal.Monkey",
+                Owner = "Rafiki",
             });
         }
     }

@@ -1,7 +1,8 @@
 ﻿@model Bank_of_Simba.ViewModel.BankAccountViewModel
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>Bank of Simba</title>
+    <link rel="stylesheet" type="text/css" href="~/style.css">
 </head>
 <body>
     <table>
@@ -11,6 +12,14 @@
                 <td>Name: @account.Name</td>
                 <td>Balance: @account.Balance @account.Currency</td>
                 <td>AnimalType: @account.AnimalType</td>
+                @if (account.Owner.Equals("King"))
+                {
+                    <td style="width: 45%; background: green">Owner: @account.Owner</td>
+                }
+                else
+                {
+                    <td>Owner: @account.Owner</td>
+                }
                 <td>Index: @Model.BankAccountList.IndexOf(account)</td>
             </tr>
         }
