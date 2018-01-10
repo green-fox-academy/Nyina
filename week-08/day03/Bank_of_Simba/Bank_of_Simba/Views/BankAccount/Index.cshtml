@@ -14,11 +14,20 @@
                 <td>AnimalType: @account.AnimalType</td>
                 @if (account.Owner.Equals("King"))
                 {
-                    <td style="width: 45%; background: green">Owner: @account.Owner</td>
+                    <td style="width: 25%; background: green">Owner: @account.Owner</td>
                 }
                 else
                 {
                     <td>Owner: @account.Owner</td>
+                }
+                @switch (account.GuyType)
+                {
+                    case true:
+                    <td>Good one</td>
+                    break;
+                    case false:
+                    <td>Bad guy</td>
+                    break;
                 }
                 <td>Index: @Model.BankAccountList.IndexOf(account)</td>
             </tr>

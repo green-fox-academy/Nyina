@@ -12,6 +12,7 @@ namespace Bank_of_Simba.Model
         public string Currency { get; set; }
         public string AnimalType { get; set; }
         public string Owner { get; set; }
+        public bool GuyType { get; set; }
         public int Index { get; set; }
     }
 }
