@@ -39,5 +39,12 @@ namespace Bank_of_Simba.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost("add")]
+        public IActionResult AddPerson(BankAccount bankAccount)
+        {
+            bankAccountVM.BankAccountList.Add(bankAccount);
+            return RedirectToAction("Index");
+        }
+
     }
 }
