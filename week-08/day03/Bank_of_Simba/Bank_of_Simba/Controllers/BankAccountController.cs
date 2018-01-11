@@ -9,6 +9,7 @@ using Bank_of_Simba.ViewModel;
 namespace Bank_of_Simba.Controllers
 {
     [Route("")]
+    //A Controller egy előre definiált osztály, amiből származtatni kell a sajátomat
     public class BankAccountController : Controller
     {
         //Az osztály 1 példányát hozom létre és ezt adom a View-hoz (lentebb)

@@ -8,17 +8,15 @@ namespace Reservation
 {
     public class Reservation
     {
-
-        public string GetCodeBooking;
-
-        public string GetDowBooking;
+        //public string GetCodeBooking;
+        //public string GetDowBooking;
 
         // https://stackoverflow.com/questions/15249138/pick-random-char
 
-        public static String GetRandomString()
+        public string GetRandomString()
         {
-            var allowedChars = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789";
-            var length = 15;
+            var allowedChars = "ABCDEFGHJKLMNOPQRSTUVWXYZ0123456789";
+            var length = 8;
 
             var chars = new char[length];
             var rd = new Random();
@@ -27,7 +25,6 @@ namespace Reservation
             {
                 chars[i] = allowedChars[rd.Next(0, allowedChars.Length)];
             }
-
             return new String(chars);
         }
 
@@ -36,5 +33,14 @@ namespace Reservation
         //DOW stands for Day of the Week (MON, TUE, etc.)
 
         //Output : Booking# 1WBA3OMU for THU
+
+        public string DOW()
+        {
+            Random r = new Random();
+            string[] days = {"MON", "TUE", "WEN", "THU", "FRI", "SAT","SUN"};
+            string day = days[r.Next(days.Length)];
+
+            return day;
+        }
     }
 }

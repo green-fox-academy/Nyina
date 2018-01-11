@@ -10,6 +10,12 @@ namespace Reservation
     {
         static void Main(string[] args)
         {
+            var reservation = new Reservation();
+
+            Console.WriteLine("Booking# {0} for {1}", reservation.GetRandomString(), reservation.DOW());
+
+            Console.ReadLine();
         }
+
     }
 }

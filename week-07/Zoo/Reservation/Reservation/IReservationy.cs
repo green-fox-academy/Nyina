@@ -8,8 +8,7 @@ namespace Reservation
 {
     public interface IReservationy
     {
-        string GetDowBooking { get; set; }
-
-        string GetCodeBooking { get; set; }
+        string DOW();
+        string GetRandomString();
     }
 }
