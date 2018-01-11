@@ -1,0 +1,25 @@
+﻿@model Anagram.Models.AnagramModel
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Are them Anagrams?</title>
+</head>
+<body>
+    <form action="/add" method="post">
+        First word:
+        <input type="text" name="givenAnagram" value="">
+        <br />
+        Word to compare:
+        <input type="text" name="givenComparedAnagram" value="">
+        <br />
+        <br />
+        <button type="submit">Are these words Anagrams?</button>
+        @*<input type="submit" value="Are these words Anagrams?">*@
+        <br />
+        <br />
+        Result:
+
+    </form>
+</body>
+</html>
