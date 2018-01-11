@@ -1,0 +1,13 @@
+﻿@model Counter.Model.CounterModel
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Increasing number</title>
+</head>
+<body>
+    <form action="/add" method="post">
+        <p>My number: @Model.Number</p>
+        <br />
+        <input type="submit" value="Add 10">
+    </form>
+</body>
+</html>
