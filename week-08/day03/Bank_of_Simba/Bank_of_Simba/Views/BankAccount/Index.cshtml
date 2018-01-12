@@ -13,21 +13,21 @@
                 <td>Balance: @account.Balance @account.Currency</td>
                 <td>AnimalType: @account.AnimalType</td>
                 @if (account.Owner.Equals("King"))
-                {
+                 {
                     <td style="width: 25%; background: yellow">Owner: @account.Owner</td>
-                }
+                 }
                 else
-                {
+                 {
                     <td>Owner: @account.Owner</td>
-                }
+                 }
                 @if (account.GuyType.Equals(true))
-                { 
+                 { 
                     <td>Good one</td>
-                }
+                 }
                 else
-                {
+                 {
                     <td>Bad guy</td>
-                }
+                 }
                 @*
                 @switch (account.GuyType)
                 {

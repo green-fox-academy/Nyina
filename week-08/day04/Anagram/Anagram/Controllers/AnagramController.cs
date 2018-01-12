@@ -22,7 +22,7 @@ namespace Anagram.Controllers
         [HttpGet("")]
         public IActionResult Index()
         {
-            return View();
+            return View(anagramResult);
         }
 
         [HttpPost("add")]
@@ -31,16 +31,30 @@ namespace Anagram.Controllers
             anagramModel.AnagramWord = givenAnagram;
             anagramModel.ComparedWord = givenComparedAnagram;
 
-            List<char> sortedAnagram = anagramModel.AnagramWord.ToList();
-            sortedAnagram.Sort();
-            List<char> sortedAnagram2 = anagramModel.ComparedWord.ToList();
-            sortedAnagram2.Sort();
+            char[] sortedAnagram = anagramModel.AnagramWord.ToArray();
+            Array.Sort(sortedAnagram);
+            char[] sortedAnagram2 = anagramModel.ComparedWord.ToArray();
+            Array.Sort(sortedAnagram2);
 
-            if (!sortedAnagram2.Equals(sortedAnagram))
+            if (sortedAnagram.Length == sortedAnagram2.Length)
             {
-                return RedirectToAction(anagramResult.NoResult);
+                for (int i = 0; i < sortedAnagram2.Length; i++)
+                {
+                    if (sortedAnagram2[i].Equals(sortedAnagram[i]))
+                    {
+                        anagramResult.Result = "These words are anagrams.";
+                    }
+                    else
+                    {
+                        anagramResult.Result = "These words are not anagrams.";
+                    }
+                }
             }
-            return RedirectToAction(anagramResult.OkResult);
+            else
+            {
+                anagramResult.Result = "These words are not anagrams.";
+            }
+            return RedirectToAction("Index");
         }
     }
 }

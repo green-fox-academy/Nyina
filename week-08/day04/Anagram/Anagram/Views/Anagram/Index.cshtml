@@ -1,4 +1,4 @@
-﻿@model Anagram.Models.AnagramModel
+﻿@model Anagram.Models.AnagramResult
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
@@ -10,6 +10,7 @@
         First word:
         <input type="text" name="givenAnagram" value="">
         <br />
+        <br />
         Word to compare:
         <input type="text" name="givenComparedAnagram" value="">
         <br />
@@ -19,7 +20,7 @@
         <br />
         <br />
         Result:
-
+        @Model.Result
     </form>
 </body>
 </html>

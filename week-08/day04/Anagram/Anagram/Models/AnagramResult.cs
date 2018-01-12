@@ -7,7 +7,8 @@ namespace Anagram.Models
 {
     public class AnagramResult
     {
-        public string OkResult { get; set; } = "These words are anagrams.";
-        public string NoResult { get; set; } = "These words are not anagrams.";
+        public string Result { get; set; }
+        //public const string OkResult = "These words are anagrams.";
+        //public const string NoResult = "These words are not anagrams.";
     }
 }
