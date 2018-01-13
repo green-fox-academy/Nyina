@@ -1,24 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using FoxProject.Models;
 using FoxProject.Viewmodels;
+using System.Linq;
 
 namespace FoxProject.Controllers
 {
-    [Route("home")]
+    [Route("/home")]
     public class HomeController : Controller
     {
-        private Fox fox;
+        private FoxViewModel foxVM;
 
-        public HomeController (Fox fox)
+        public HomeController(FoxViewModel foxVM)
         {
-            this.fox = fox;
+            this.foxVM = foxVM;
         }
 
         [HttpGet("")]
         public IActionResult Index()
         {
-            return View(fox);
+            return View(foxVM);
         }
-
     }
 }
+
+

@@ -15,14 +15,14 @@ namespace FoxProject.Viewmodels
             AddToList();
         }
 
-        public void AddToList()
+        private void AddToList()
         {
             FoxList.Add(new Fox()
             {
                 Name = "Karak",
                 Food = "Salad",
                 Drink = "Water",
-                Tricks = { }
+                Tricks = new List<string>(){ },
             });
 
             FoxList.Add(new Fox()
@@ -30,7 +30,7 @@ namespace FoxProject.Viewmodels
                 Name = "Vuk",
                 Food = "Burrito",
                 Drink = "Orange juice",
-                Tricks = { "See sharp", "C#"}
+                Tricks = new List<string>() { "See sharp", "C#" }
             });
         }
     }

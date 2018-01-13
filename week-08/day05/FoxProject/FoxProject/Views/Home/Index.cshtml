@@ -1,4 +1,4 @@
-﻿@model FoxProject.Models.Fox
+﻿@model FoxProject.Viewmodels.FoxViewModel
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,12 +10,24 @@
         <li><a href="https://www.w3schools.com/html/">Information</a></li>
     </ul>
     <img src="greenfox.png" alt="Greenfox">
-    <p>This is @Model.Name. Currently living on @Model.Food and @Model.Drink. He knows @Model.Tricks.Count tricks.</p>
-    <h1>Known tricks</h1>
-    <ul>@foreach (var element in Model.Tricks)
+    @foreach (var element in @Model.FoxList)
     {
-        <li>@element</li>
+    <p>This is @element.Name Currently living on @element.Food and @element.Drink. He knows @element.Tricks.Count tricks.</p>
+    <h1>Known tricks</h1>
+
+        @if (element.Tricks.Count != 0)
+        {
+            <ul>
+                @foreach (var trick in element.Tricks)
+                {
+                    <li>@trick</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>Know no tricks yet. Go and learn some.</p>
+        }
     }
-    </ul>
 </body>
 </html>

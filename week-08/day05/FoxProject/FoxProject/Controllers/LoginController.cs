@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using FoxProject.Models;
 using FoxProject.Viewmodels;
 
 
@@ -8,11 +7,11 @@ namespace FoxProject.Controllers
     [Route("")]
     public class LoginController : Controller
     {
-        private Fox fox;
+        private FoxViewModel foxVM;
 
-        public LoginController(Fox fox)
+        public LoginController(FoxViewModel foxVM)
         {
-            this.fox = fox;
+            this.foxVM = foxVM;
         }
 
         [HttpGet("")]
@@ -24,7 +23,10 @@ namespace FoxProject.Controllers
         [HttpPost("")]
         public IActionResult RecieveName(string foxName)
         {
-            fox.Name = foxName;
+            foreach (var oneFox in foxVM.FoxList)
+            {
+                oneFox.Name = foxName;
+            }
             return Redirect("/home");
             //return name.Equals("Laci") ? Redirect("/game") : Redirect("/");
         }

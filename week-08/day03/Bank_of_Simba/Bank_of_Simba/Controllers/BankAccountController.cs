@@ -47,6 +47,7 @@ namespace Bank_of_Simba.Controllers
         }
 
         [HttpPost("add")]
+        //Az objektum paraméterként való megjelenítésével a form mezőit automatán értéket ad a megfelelő propertyknek
         public IActionResult AddPerson(BankAccount bankAccount)
         {
             bankAccountVM.BankAccountList.Add(bankAccount);
