@@ -1,0 +1,21 @@
+﻿@model FoxProject.Models.Fox
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <ul>
+        <li><a href="https://www.w3schools.com/html/">Information</a></li>
+    </ul>
+    <img src="greenfox.png" alt="Greenfox">
+    <p>This is @Model.Name. Currently living on @Model.Food and @Model.Drink. He knows @Model.Tricks.Count tricks.</p>
+    <h1>Known tricks</h1>
+    <ul>@foreach (var element in Model.Tricks)
+    {
+        <li>@element</li>
+    }
+    </ul>
+</body>
+</html>
