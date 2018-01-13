@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace FoxProject.Controllers
 {
-    [Route("/home")]
+    [Route("/home{foxName}")]
     public class HomeController : Controller
     {
         private FoxViewModel foxVM;

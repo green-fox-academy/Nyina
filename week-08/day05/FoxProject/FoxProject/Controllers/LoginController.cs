@@ -27,7 +27,7 @@ namespace FoxProject.Controllers
             {
                 oneFox.Name = foxName;
             }
-            return Redirect("/home");
+            return Redirect("/home{foxName}");
             //return name.Equals("Laci") ? Redirect("/game") : Redirect("/");
         }
     }
