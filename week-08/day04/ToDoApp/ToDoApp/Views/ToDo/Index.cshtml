@@ -1,0 +1,51 @@
+﻿@model ToDoApp.ViewModels.ToDoAppViewModel
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>To Do App</title>
+    <link rel="stylesheet" type="text/css" href="~/StyleSheet.css">
+</head>
+<body>
+    <table style="width: 100%; color: blueviolet ">
+            @foreach (var listElement in Model.ToDoList)
+            {
+            <tr>
+                <td>Task: @listElement.Task</td>
+                <td>Urgent: @listElement.Urgent</td>
+                <td>Index: @Model.ToDoList.IndexOf(listElement)</td>
+            </tr>
+            }
+    </table>
+    <br/>
+    <br />
+        <form class="form1" action="/add" method="post">
+            <p>Task:</p>
+            <input type="text" name="Task" value="">
+            <br />
+            <p>Urgent:</p>
+            <select type="text" name="Urgent">
+                @foreach (var listElement in Model.ToDoList)
+                 {
+                    @if (listElement.Urgent.Equals(true))
+                    {
+                        <option value="Important">Important</option>
+                    }
+                    else
+                    {
+                        <option value="Not Important">Not Important</option>
+                    }
+                 }
+            </select>
+            <br />
+            <br />
+            <input type="submit" value="Add new list element">
+        </form>
+
+        <form class="form2" action="/remove" method="post">
+            Index:
+            <input type="number" name="Index" value="">
+            <br />
+            <br />
+            <input type="submit" value="Remove a list element">
+        </form>
+</body>
+</html> 

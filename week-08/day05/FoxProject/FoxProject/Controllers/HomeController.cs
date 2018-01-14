@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace FoxProject.Controllers
 {
-    [Route("/home{foxName}")]
+    [Route("/home/{foxName}")]
     public class HomeController : Controller
     {
         private FoxViewModel foxVM;
@@ -14,10 +14,12 @@ namespace FoxProject.Controllers
             this.foxVM = foxVM;
         }
 
-        [HttpGet("")]
-        public IActionResult Index()
+        [Route("")]
+        public IActionResult Index(string foxName)
         {
-            return View(foxVM);
+            var fox = foxVM.FoxList.First(x => x.Name == foxName);
+            return View("home");
+            //return View("home");
         }
     }
 }

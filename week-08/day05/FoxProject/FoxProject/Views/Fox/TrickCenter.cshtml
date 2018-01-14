@@ -1,0 +1,27 @@
+﻿@model FoxProject.Viewmodels.FoxViewModel
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Trick Center</title>
+</head>
+<body>
+    <ul>
+        <li><a href="https://www.w3schools.com/html/">Information</a></li>
+        <li><a href="https://www.w3schools.com/html/">Nutrition store</a></li>
+        <li><a href="https://www.w3schools.com/html/">Trick center</a></li>
+        <li><a href="https://www.w3schools.com/html/">Action history</a></li>
+    </ul>
+    <div class="div-inline">
+        <form action="addtricks" method="post">
+            <p>Tricks</p>
+            <select type="text" name="Tricks">
+                <option value="laugh">Laugh</option>
+                <option value="jump">Jump</option>
+                <option value="sing">Sing</option>
+                <option value="dance">Dance</option>
+            </select>
+            <button type="submit">Change</button>
+            @*<input type="submit" value="Change">*@
+        </form>
+    </div>
+</body>
+</html>

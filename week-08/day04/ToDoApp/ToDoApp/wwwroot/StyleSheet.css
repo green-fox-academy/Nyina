@@ -1,0 +1,13 @@
+﻿.form1 {
+    float: left;
+    width: 50%;
+}
+
+.form2 {
+    float: right;
+    width: 50%;
+}
+
+table {
+    background-color: yellow;
+}

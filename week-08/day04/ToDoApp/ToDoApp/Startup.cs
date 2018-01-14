@@ -6,9 +6,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Bank_of_Simba.ViewModel;
+using ToDoApp.Models;
+using ToDoApp.ViewModels;
 
-namespace Bank_of_Simba
+namespace ToDoApp
 {
     public class Startup
     {
@@ -17,9 +18,9 @@ namespace Bank_of_Simba
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<BankAccountViewModel>();
+            services.AddSingleton<ToDoAppViewModel>();
+            services.AddSingleton<ToDo>();
         }
-
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -30,6 +31,7 @@ namespace Bank_of_Simba
             }
 
             app.UseMvc();
+
             //Hogy lássa a CSS file-t
             app.UseStaticFiles();
 

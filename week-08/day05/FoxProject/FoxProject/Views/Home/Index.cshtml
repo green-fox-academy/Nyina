@@ -13,26 +13,7 @@
         <li><a href="https://www.w3schools.com/html/">Trick center</a></li>
         <li><a href="https://www.w3schools.com/html/">Action history</a></li>
     </ul>
-    <div class="div-inline">
-        <form action="changenutrition" method="post">
-            <p>Food</p>
-            <select type="text" name="Food">
-                <option value="pizza">Pizza</option>
-                <option value="hamburger">Hamburger</option>
-                <option value="salad">Salad</option>
-                <option value="bread">Bread</option>
-            </select>
-            <p>Drink</p>
-            <select type="text" name="Tea">
-                <option value="tea">Tea</option>
-                <option value="juice">Juice</option>
-                <option value="water">Water</option>
-                <option value="cola">Cola</option>
-            </select>
-            <button type="submit">Change</button>
-            @*<input type="submit" value="Change">*@
-        </form>
-    </div>
+
         <img src="greenfox.png" alt="Greenfox">
         @foreach (var element in @Model.FoxList)
         {
