@@ -4,11 +4,21 @@
     <title>Todo CRUD App</title>
 </head>
 <body>
-    <form action="/add" method="post">
-        <p>Task:</p>
-        <input type="text" name="Task" value="">
+    <form action="/todo/add" method="post">
+        <p>Title:</p>
+        <input type="text" name="Title" value="">
         <br />
         <br />
+        <p>IsDone</p>
+        <select type="text" name="IsDone">
+        <option value=true>Is Done</option>
+        <option value=false>Is Not Done</option>
+        </select>
+        <p>IsUrgent</p>
+        <select type="text" name="IsUrgent">
+        <option value=true>Important</option>
+        <option value=false>Not Important</option>
+        </select>
         <input type="submit" value="Add new list element">
     </form>
 

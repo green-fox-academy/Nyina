@@ -19,9 +19,10 @@ namespace ListingToDos.Controllers
         }
 
         [HttpGet("/todo")]
-        public IActionResult Index()
+        //Ha az Action neve azonos lenne egy másikkal (itt: List), akkor paraméterben 1-nek meg kell adni ""-be a Listet, utána pedig a methodot
+        public IActionResult ToDo()
         {
-            return View();
+            return View("List", toDoRepository.ShowList());
         }
 
         //[Route("/list")]
@@ -41,7 +42,20 @@ namespace ListingToDos.Controllers
             return View(toDoRepository.DecideListType(isActive));
         }
 
-        [HttpGet()]
+        [HttpGet("/todo/add")]
+        public IActionResult ViewAddForm()
+        {
+            return View("Add");
+        }
+
+        [HttpPost("/todo/add")]
+        public IActionResult CreateListElement(ToDo toDo)
+        {
+            toDoRepository.CreateNewListItem(toDo);
+            return Redirect("/todo");
+        }
+
+
 
     }
 }

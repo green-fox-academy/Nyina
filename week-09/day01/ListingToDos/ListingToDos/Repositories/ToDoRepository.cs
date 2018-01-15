@@ -48,5 +48,17 @@ namespace ListingToDos.Repositories
                 return ShowList();
             }
         }
+
+        public void CreateNewListItem(ToDo ToDo)
+        {
+            toDoContext.ToDos.Add(ToDo);
+            toDoContext.SaveChanges();
+        }
+
+        //public void DeleteAListItem(int index)
+        //{
+        //    toDoContext.ToDos.Remove();
+        //    toDoContext.SaveChanges();
+        //}
     }
 }
