@@ -24,13 +24,24 @@ namespace ListingToDos.Controllers
             return View();
         }
 
+        //[Route("/list")]
+        //public IActionResult List()
+        //{
+        //    //A . után be kell hivatkozni a repository listát funkcióját
+        //    return View(toDoRepository.ShowList());
+        //}
+
         [Route("/list")]
-        public IActionResult List()
+        public IActionResult List([FromQuery]bool isActive)
         {
-            //A . után be kell hivatkozni a repository listát funkcióját
-            return View(toDoRepository.ShowList());
+            //Paraméterben kell megadni a szűrési feltételt: (active means !isDone): http://localhost:5000/todo/?isActive=true
+            //A repositoryban, ahogy a methodokat eddig is csináltuk
+
+            //Itt már a decide methodot használjuk
+            return View(toDoRepository.DecideListType(isActive));
         }
 
+        [HttpGet()]
 
     }
 }

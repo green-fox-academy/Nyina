@@ -5,12 +5,28 @@
 </head>
 <body>
     <h1>Todos for today</h1>
-    @{foreach (var element in Model)
-        {
-            <ul>
-                <li>@element.Title</li>
-            </ul>
-        }
-    }
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>IsDone</th>
+                <th>IsUrgent</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{foreach (var element in Model)
+            {
+                    <tr>
+                        <td>@element.Id</td>
+                        <td>@element.Title</td>
+                        <td>@element.IsDone</td>
+                        <td>@element.IsUrgent</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
 </body>
 </html>

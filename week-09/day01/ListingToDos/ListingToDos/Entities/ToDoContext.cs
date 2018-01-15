@@ -13,6 +13,6 @@ namespace ListingToDos.Entities
         {
         }
 
-        public DbSet<ToDo> ToDosSet { get; set; }
+        public DbSet<ToDo> ToDos { get; set; }
     }
 }
