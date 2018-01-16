@@ -62,5 +62,14 @@ namespace ListingToDos.Repositories
             toDoContext.ToDos.Remove(t);
             toDoContext.SaveChanges();
         }
+
+        public void EditAListItem(ToDo todo, long index)
+        {
+            ToDo t = toDoContext.ToDos.FirstOrDefault(x => x.Id == index);
+            t.Title = todo.Title;
+            t.IsDone = todo.IsDone;
+            t.IsUrgent = todo.IsUrgent;
+            toDoContext.SaveChanges();
+        }
     }
 }

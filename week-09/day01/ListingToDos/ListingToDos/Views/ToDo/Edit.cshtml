@@ -1,0 +1,21 @@
+﻿@model ListingToDos.Models.ToDo
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Edit Todo</title>
+</head>
+<body>
+    <form action="@Model.Id/edit" method="post">
+        <p>Todo Description:</p>
+        <input type="text" name="Title" value="">
+        <br />
+        <br />
+        <p>Urgent</p>
+        <input type="radio" ng-checked="true">
+        <p>Done</p>
+        <input type="radio" ng-checked="true">
+        <input type="submit" value="Submit">
+        <p><a href="/todo">Cancel</a></p>
+    </form>
+
+</body>
+</html>

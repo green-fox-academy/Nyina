@@ -59,9 +59,21 @@ namespace ListingToDos.Controllers
         public IActionResult Delete(long id)
         {
             toDoRepository.DeleteAListItem(id);
-            return RedirectToAction("List");
+            return Redirect("/todo");
+            //return RedirectToAction("List");
         }
 
+        [HttpGet("/{id}/edit")]
+        public IActionResult Edit()
+        {
+            return View("Edit");
+        }
 
+        [HttpPost("/{id}/edit")]
+        public IActionResult CreateListElement(ToDo toDo, long index)
+        {
+            toDoRepository.EditAListItem(toDo, index);
+            return Redirect("/todo");
+        }
     }
 }
