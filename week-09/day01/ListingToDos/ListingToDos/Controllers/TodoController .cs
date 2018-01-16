@@ -55,6 +55,12 @@ namespace ListingToDos.Controllers
             return Redirect("/todo");
         }
 
+        [HttpGet("/{id}/delete")]
+        public IActionResult Delete(long id)
+        {
+            toDoRepository.DeleteAListItem(id);
+            return RedirectToAction("List");
+        }
 
 
     }

@@ -9,7 +9,7 @@ namespace ListingToDos.Repositories
 {
     public class ToDoRepository
     {
-        public ToDoContext toDoContext;
+        private ToDoContext toDoContext;
 
         public ToDoRepository (ToDoContext toDoContext)
         {
@@ -55,10 +55,12 @@ namespace ListingToDos.Repositories
             toDoContext.SaveChanges();
         }
 
-        //public void DeleteAListItem(int index)
-        //{
-        //    toDoContext.ToDos.Remove();
-        //    toDoContext.SaveChanges();
-        //}
+        public void DeleteAListItem(long index)
+        {
+            //ToDo t = toDoContext.ToDos.Find(index);
+            ToDo t = toDoContext.ToDos.FirstOrDefault(x => x.Id == index);
+            toDoContext.ToDos.Remove(t);
+            toDoContext.SaveChanges();
+        }
     }
 }

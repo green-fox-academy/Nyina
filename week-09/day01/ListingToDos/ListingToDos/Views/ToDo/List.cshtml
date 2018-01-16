@@ -19,10 +19,12 @@
             @{foreach (var element in Model)
             {
                     <tr>
-                        <td>@element.Id</td>
+                        @*<td>@element.Id</td>*@
+                        <td>@Model.IndexOf(element)</td>
                         <td>@element.Title</td>
                         <td>@element.IsDone</td>
                         <td>@element.IsUrgent</td>
+                        <td><a href="/@element.Id/delete/">Delete</a></td>
                     </tr>
                 }
             }
