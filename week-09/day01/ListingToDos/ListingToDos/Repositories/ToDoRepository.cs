@@ -71,5 +71,12 @@ namespace ListingToDos.Repositories
             t.IsUrgent = todo.IsUrgent;
             toDoContext.SaveChanges();
         }
+
+        public ToDo GetAListItem(long index)
+        {
+            //1 db todo-t adunk vissza
+            return toDoContext.ToDos.FirstOrDefault(x => x.Id == index);
+        }
+
     }
 }

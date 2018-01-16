@@ -18,6 +18,14 @@ namespace ListingToDos.Controllers
             this.toDoRepository = toDoRepository;
         }
 
+        [HttpGet("/")]
+        //Index action, hogy egyből átdobjon a todo-ra
+        public IActionResult Index()
+        {
+            return Redirect("/todo");
+        }
+
+
         [HttpGet("/todo")]
         //Ha az Action neve azonos lenne egy másikkal (itt: List), akkor paraméterben 1-nek meg kell adni ""-be a Listet, utána pedig a methodot
         public IActionResult ToDo()
@@ -64,15 +72,17 @@ namespace ListingToDos.Controllers
         }
 
         [HttpGet("/{id}/edit")]
-        public IActionResult Edit()
+        public IActionResult Edit(long id)
         {
-            return View("Edit");
+            //Ha id van az URL-ben, akkor azt kell paraméterbe is beadni (a deletnél is úgy volt!)
+            //Úgy kell megadni, mint a ToDo methodnál, csak mivel a method nevével (Edit) egyezik a View neve, nem kell ez utóbbit odaírni már
+            return View(toDoRepository.GetAListItem(id));
         }
 
         [HttpPost("/{id}/edit")]
-        public IActionResult CreateListElement(ToDo toDo, long index)
+        public IActionResult CreateListElement(ToDo toDo, long id)
         {
-            toDoRepository.EditAListItem(toDo, index);
+            toDoRepository.EditAListItem(toDo, id);
             return Redirect("/todo");
         }
     }

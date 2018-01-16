@@ -4,18 +4,17 @@
     <title>Edit Todo</title>
 </head>
 <body>
-    <form action="@Model.Id/edit" method="post">
+    <form action="/@Model.Id/edit" method="post">
         <p>Todo Description:</p>
-        <input type="text" name="Title" value="">
+        <input type="text" name="Title" value="@Model.Title">
         <br />
         <br />
         <p>Urgent</p>
-        <input type="radio" ng-checked="true">
+        <input type="checkbox" name="IsUrgent" value="@Model.IsUrgent" checked>
         <p>Done</p>
-        <input type="radio" ng-checked="true">
+        <input type="checkbox" name="IsDone" value="@Model.IsDone" checked>
         <input type="submit" value="Submit">
         <p><a href="/todo">Cancel</a></p>
     </form>
-
 </body>
 </html>
