@@ -29,6 +29,7 @@ namespace ListingToDos.Repositories
         {
             //A context todo dbset-jét listává kell alakítani
             //és eztv a controllerben meg kell hívni
+            toDoContext.ToDos.Add(new ToDo { Title = "A" });
             return toDoContext.ToDos.ToList();
         }
 
