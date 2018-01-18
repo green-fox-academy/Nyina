@@ -1,0 +1,22 @@
+﻿@model The_Reddit.Viewmodels.TheRedditViewModel
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Create new Post</title>
+</head>
+<body>
+    <form action="/posts/add" method="post">
+        <p>Content:</p>
+        @foreach (var element in Model.Post)
+        {
+        <input type="text" name="Title" value="@element.Content">
+        <p>User:</p>
+        <input type="text" name="Name" value="@element.User.Name">
+        <p>Score:</p>
+        <input type="text" name="Score" value="@element.Score">
+        <br />
+        <br />
+        <input type="submit" value="Submit">
+        }
+    </form>
+</body>
+</html>

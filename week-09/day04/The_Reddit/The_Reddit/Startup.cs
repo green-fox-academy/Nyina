@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using ListingToDos.Entities;
-using ListingToDos.Repositories;
+using The_Reddit.Entities;
+using The_Reddit.Repositories;
+using The_Reddit.Viewmodels;
 
-namespace ListingToDos
+
+namespace The_Reddit
 {
     public class Startup
     {
@@ -19,8 +21,9 @@ namespace ListingToDos
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddScoped<ToDoRepository>();
-            services.AddDbContext<ToDoContext>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TODO;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
+            services.AddScoped<TheRedditRepository>();
+            services.AddScoped<TheRedditViewModel>();
+            services.AddDbContext<TheRedditContext>(options => options.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = master; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = True; ApplicationIntent = ReadWrite; MultiSubnetFailover = False"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,9 +34,7 @@ namespace ListingToDos
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseStaticFiles();
             app.UseMvc();
-
         }
     }
 }

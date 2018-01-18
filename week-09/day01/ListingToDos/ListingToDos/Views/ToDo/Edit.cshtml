@@ -4,17 +4,25 @@
     <title>Edit Todo</title>
 </head>
 <body>
-    <form action="/@Model.Id/edit" method="post">
+    <form action="/@Model.ToDoId/edit" method="post">
         <p>Todo Description:</p>
         <input type="text" name="Title" value="@Model.Title">
-        <br />
-        <br />
-        <p>Urgent</p>
-        <input type="checkbox" name="IsUrgent" value="true" checked="@Model.IsUrgent">
-        <p>Done</p>
-        <input type="checkbox" name="IsDone" value="true" checked="@Model.IsDone">
-        <input type="submit" value="Submit">
-        <p><a href="/todo">Cancel</a></p>
-    </form>
+        <p>Whose task is it?:</p>
+        @*<input type="text" name="Name" value="@Model.User">*@
+        <select type="text" name="User">
+            <option value="@Model.User">Nyina</option>
+            <option value="cat">Cat</option>
+            <option value="dog">Dog</option>
+            <option value="Ádám">Ádám</option>
+        </select>
+            <br />
+            <br />
+            <p>Urgent</p>
+            <input type="checkbox" name="IsUrgent" value="true" checked="@Model.IsUrgent">
+            <p>Done</p>
+            <input type="checkbox" name="IsDone" value="true" checked="@Model.IsDone">
+            <input type="submit" value="Submit">
+            <p><a href="/todo">Cancel</a></p>
+</form>
 </body>
 </html>

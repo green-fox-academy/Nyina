@@ -29,7 +29,7 @@ namespace ListingToDos.Repositories
         {
             //A context todo dbset-jét listává kell alakítani
             //és eztv a controllerben meg kell hívni
-            toDoContext.ToDos.Add(new ToDo { Title = "A" });
+            //toDoContext.ToDos.Add(new ToDo { Title = "A" });
             return toDoContext.ToDos.ToList();
         }
 
@@ -59,15 +59,16 @@ namespace ListingToDos.Repositories
         public void DeleteAListItem(long index)
         {
             //ToDo t = toDoContext.ToDos.Find(index);
-            ToDo t = toDoContext.ToDos.FirstOrDefault(x => x.Id == index);
+            ToDo t = toDoContext.ToDos.FirstOrDefault(x => x.ToDoId == index);
             toDoContext.ToDos.Remove(t);
             toDoContext.SaveChanges();
         }
 
         public void EditAListItem(ToDo todo, long index)
         {
-            ToDo t = toDoContext.ToDos.FirstOrDefault(x => x.Id == index);
+            ToDo t = toDoContext.ToDos.FirstOrDefault(x => x.ToDoId == index);
             t.Title = todo.Title;
+            t.User = todo.User;
             t.IsDone = todo.IsDone;
             t.IsUrgent = todo.IsUrgent;
             toDoContext.SaveChanges();
@@ -76,7 +77,7 @@ namespace ListingToDos.Repositories
         public ToDo GetAListItem(long index)
         {
             //1 db todo-t adunk vissza
-            return toDoContext.ToDos.FirstOrDefault(x => x.Id == index);
+            return toDoContext.ToDos.FirstOrDefault(x => x.ToDoId == index);
         }
 
     }

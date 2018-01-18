@@ -1,25 +1,25 @@
-﻿using ListingToDos.Models;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using The_Reddit.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace ListingToDos.Entities
+namespace The_Reddit.Entities
 {
-    public class ToDoContext : DbContext
+    public class TheRedditContext : DbContext
     {
-        public ToDoContext(DbContextOptions options) : base(options)
+        public TheRedditContext(DbContextOptions options) : base(options)
         {
         }
 
-        public DbSet<ToDo> ToDos { get; set; }
+        public DbSet<Post> PoSts { get; set; }
         public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
-                 .HasMany(x => x.Todos)
+                 .HasMany(x => x.PoSts)
                  .WithOne(x => x.User)
                  .HasPrincipalKey(x => x.UserId);
         }

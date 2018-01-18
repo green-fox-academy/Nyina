@@ -1,0 +1,36 @@
+﻿@model The_Reddit.Viewmodels.TheRedditViewModel
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Aze Reddit</title>
+</head>
+<body>
+    <p><a href="/posts/add">Add new post</a></p>
+    <h1>Posts</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>SCORE</th>
+                <th>Actions</th>
+                <th>Content</th>
+                <th>User</th>
+            </tr>
+        </thead>
+        <tbody>
+
+                @{foreach (var element in Model.Post)
+                    {
+                    @if(element.User != null)
+                    {{
+                        <tr>
+                            <td>@element.Score</td>
+                            <td><a href="/@element.Score/score_add">+</a><a href="/@element.Score/score_decrease">-</a></td>
+                            <td>@element.Content</td>
+                            <td>@element.User.Name</td>
+                        </tr>
+                    }}
+                  }
+                 }
+        </tbody>
+    </table>
+</body>
+</html>
