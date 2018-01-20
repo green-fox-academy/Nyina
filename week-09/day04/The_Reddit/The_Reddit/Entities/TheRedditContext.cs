@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using The_Reddit.Models;
 using Microsoft.EntityFrameworkCore;
+using The_Reddit.Models;
 
 namespace The_Reddit.Entities
 {

@@ -17,18 +17,17 @@
         </thead>
         <tbody>
 
-                @{foreach (var element in Model.Post)
-                    {
+                @foreach (var element in @Model.User.PoSts)
+                 {
                     @if(element.User != null)
-                    {{
+                    {
                         <tr>
                             <td>@element.Score</td>
                             <td><a href="/@element.Score/score_add">+</a><a href="/@element.Score/score_decrease">-</a></td>
                             <td>@element.Content</td>
                             <td>@element.User.Name</td>
                         </tr>
-                    }}
-                  }
+                    }
                  }
         </tbody>
     </table>

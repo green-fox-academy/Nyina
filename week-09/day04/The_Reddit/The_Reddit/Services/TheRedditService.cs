@@ -19,10 +19,11 @@ namespace The_Reddit.Services
         //Itt kell a viewmodelt összerakni (postokhoz tartozó userek logikája jelenik meg benne)
         //Akkor van értelme a service-t használni, ha az itt szereplő kódblokkokat több helyen szeretnénk használni
         //így elkerülhető a kódduplikáció
-        public TheRedditViewModel ViewDetails()
+        public TheRedditViewModel ViewDetails(string name)
         {
             return new TheRedditViewModel()
             {
+                User = theRedditRepository.GetUser(name),
                 Post = theRedditRepository.ShowList()
             };
         }

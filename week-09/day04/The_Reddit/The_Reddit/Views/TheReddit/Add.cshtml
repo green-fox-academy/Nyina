@@ -6,13 +6,11 @@
 <body>
     <form action="/posts/add" method="post">
         <p>Content:</p>
-        @foreach (var element in Model.Post)
-        {
-        <input type="text" name="Title" value="@element.Content">
+        <input type="text" name="Content" value="">
         <p>User:</p>
-        <input type="text" name="Name" value="@element.User.Name">
+        <input type="text" name="Name" value="">
         <p>Score:</p>
-        <input type="text" name="Score" value="@element.Score">
+        <input type="text" name="Score" value="">
         <br />
         <br />
         <input type="submit" value="Submit">

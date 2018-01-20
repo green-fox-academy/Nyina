@@ -30,12 +30,12 @@ namespace The_Reddit.Controllers
         }
 
 
-        [HttpGet("/posts")]
+        [HttpGet("/posts/{name}")]
         //Ha az Action neve azonos lenne egy másikkal (itt: List), akkor paraméterben 1-nek meg kell adni ""-be a Listet, utána pedig a methodot
-        public IActionResult Posts()
+        public IActionResult Posts([FromRoute]string name)
         {
             TheRedditService theRedditService = new TheRedditService(theRedditRepository);
-            var interesting = theRedditService.ViewDetails();
+            var interesting = theRedditService.ViewDetails(name);
             return View("List", interesting);
         }
 
@@ -53,16 +53,23 @@ namespace The_Reddit.Controllers
             return Redirect("/posts");
         }
 
+        //[HttpGet("/posts/add")]
+        //public IActionResult ViewAddForm()
+        //{
+        //    return View("Add");
+        //}
+
         [HttpGet("/posts/add")]
-        public IActionResult ViewAddForm()
+        public IActionResult ViewAddForm(string name, Post PoSt)
         {
+            //theRedditRepository.CreateNewListItem(name, PoSt);
             return View("Add");
         }
 
         [HttpPost("/posts/add")]
         public IActionResult CreateListElement(string name, Post PoSt)
         {
-            theRedditRepository.CreateNewListItem(name, PoSt);
+            theRedditRepository.CreatePostToUser(name, PoSt);
             return Redirect("/posts");
         }
 

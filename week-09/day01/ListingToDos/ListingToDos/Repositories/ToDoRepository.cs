@@ -28,7 +28,7 @@ namespace ListingToDos.Repositories
         public List<ToDo> ShowList()
         {
             //A context todo dbset-jét listává kell alakítani
-            //és eztv a controllerben meg kell hívni
+            //és ezt a controllerben meg kell hívni
             //toDoContext.ToDos.Add(new ToDo { Title = "A" });
             return toDoContext.ToDos.ToList();
         }
@@ -50,17 +50,30 @@ namespace ListingToDos.Repositories
             }
         }
 
-        public void CreateNewListItem(ToDo ToDo)
+        public void CreateNewTodo(ToDo ToDo)
         {
             toDoContext.ToDos.Add(ToDo);
+            toDoContext.SaveChanges();
+        }
+
+        public void CreateNewUser(User user)
+        {
+            toDoContext.Users.Add(user);
+            toDoContext.SaveChanges();
+        }
+
+        public void DeleteAUser(long index)
+        {
+            User userToDelete = toDoContext.Users.FirstOrDefault(x => x.UserId == index);
+            toDoContext.Users.Remove(userToDelete);
             toDoContext.SaveChanges();
         }
 
         public void DeleteAListItem(long index)
         {
             //ToDo t = toDoContext.ToDos.Find(index);
-            ToDo t = toDoContext.ToDos.FirstOrDefault(x => x.ToDoId == index);
-            toDoContext.ToDos.Remove(t);
+            ToDo itemToDelete = toDoContext.ToDos.FirstOrDefault(x => x.ToDoId == index);
+            toDoContext.ToDos.Remove(itemToDelete);
             toDoContext.SaveChanges();
         }
 
@@ -80,5 +93,9 @@ namespace ListingToDos.Repositories
             return toDoContext.ToDos.FirstOrDefault(x => x.ToDoId == index);
         }
 
+        public User GetAUser(long index)
+        {
+            return toDoContext.Users.FirstOrDefault(x => x.UserId == index);
+        }
     }
 }

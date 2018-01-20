@@ -13,6 +13,8 @@ namespace HelloWorld.Controllers
         [Route("greeting")]
         public IActionResult Greeting([FromQuery]string name)
         {
+            //Create and pass a Greeting object when it is called 
+            //like this return new JsonResult(Object)
             var hello = new Greetings(name);
             return new JsonResult(hello);
         }

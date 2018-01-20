@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using The_Reddit.Entities;
 using The_Reddit.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace The_Reddit.Repositories
 {
@@ -30,7 +30,12 @@ namespace The_Reddit.Repositories
             return theRedditContext.Users.FirstOrDefault(u => u.Name.Equals(name));
         }
 
-        public void CreateNewListItem(string name, Post post)
+        //public Post GetPost(long id)
+        //{
+        //    return theRedditContext.PoSts.FirstOrDefault(p => p.PostId == id);
+        //}
+
+        public void CreatePostToUser(string name, Post post)
         {
             post.User = GetUser(name);
             theRedditContext.PoSts.Add(post);
