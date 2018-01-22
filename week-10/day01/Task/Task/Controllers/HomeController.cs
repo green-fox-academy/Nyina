@@ -17,16 +17,13 @@ namespace Task.Controllers
         //}
 
         [HttpGet("/doubling")]
-        public IActionResult Doubling(int? id)
+        public IActionResult Doubling(int? input)
         {
-            if (id == null)
+            if (input == null)
             {
                 return Json(new { error = "Please provide an input!" });
             }
-            else
-            {
-                return Json(new { recieved = id, result = id * 2 });
-            }
+            return Json(new { received = input, result = input * 2 });
         }
     }
 }
