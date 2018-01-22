@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.StaticFiles;
 
 namespace Task.Controllers
 {
-    [Route ("")]
+    [Route("")]
     public class HomeController : Controller
     {
         //[HttpGet ("/")]
@@ -33,7 +33,18 @@ namespace Task.Controllers
             {
                 return Json(new { error = "Please provide a name!" });
             }
-            return Json(new { welcome_message = string.Format("Oh, hi there {0}, my dear {1}!", name, title)});
+            return Json(new { welcome_message = string.Format("Oh, hi there {0}, my dear {1}!", name, title) });
+        }
+    
+        [HttpGet("/appenda/{appendable}")]
+        public IActionResult AppendA(string appendable)
+        {
+            if (appendable == null)
+            {
+                Response.StatusCode = 404;
+                return null;
             }
+            return Json(new { myword = appendable + "a" });
+        }
     }
 }
