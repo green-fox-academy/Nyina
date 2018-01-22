@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
+using Task.Model;
 
 namespace Task.Controllers
 {
@@ -45,6 +46,36 @@ namespace Task.Controllers
                 return null;
             }
             return Json(new { myword = appendable + "a" });
+        }
+
+        [HttpPost("dountil/{what}")]
+        public IActionResult DoUntil(string what, [FromBody]Num Num)
+        {
+            if (Num.Until == null)
+            {
+                return Json(new { error = "Please provide a number!" });
+            }
+            if (what.Equals("sum"))
+            {
+                int numSum = 0;
+
+                for (int i = 0; i < Num.Until + 1; i++)
+                {
+                    numSum += i;
+                }
+                return Json(new { received = Num.Until, result = numSum });
+            }
+            if (what.Equals("factor"))
+            {
+                int factorial = 1;
+
+                for (int i = 1; i < Num.Until + 1; i++)
+                {
+                    factorial *= i;
+                }
+                return Json(new { received = Num.Until, result = factorial });
+            }
+            return NotFound();
         }
     }
 }
