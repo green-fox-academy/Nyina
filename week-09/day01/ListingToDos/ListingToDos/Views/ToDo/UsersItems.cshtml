@@ -1,0 +1,38 @@
+﻿@model List<ListingToDos.Models.ToDo>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>User's Item</title>
+</head>
+<body>
+
+    <h1> One searched todo</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>IsDone</th>
+                <th>IsUrgent</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            @{foreach (var element in Model)
+            {
+                    <tr>
+                        <td>@element.ToDoId</td>
+                        <td>@element.Title</td>
+                        <td>@element.IsDone</td>
+                        <td>@element.IsUrgent</td>
+                        <td>@element.Date</td>
+                        <td><a href="/@element.ToDoId/delete/">Delete</a></td>
+                        <td><a href="/@element.ToDoId/edit/">Edit</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <p><a href="/todo">Back</a></p>
+</body>
+</html>

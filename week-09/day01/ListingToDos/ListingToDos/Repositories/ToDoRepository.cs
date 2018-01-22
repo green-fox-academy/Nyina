@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ListingToDos.Entities;
 using ListingToDos.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ListingToDos.Repositories
 {
@@ -29,8 +30,7 @@ namespace ListingToDos.Repositories
         {
             //A context todo dbset-jét listává kell alakítani
             //és ezt a controllerben meg kell hívni
-            //toDoContext.ToDos.Add(new ToDo { Title = "A" });
-            return toDoContext.ToDos.ToList();
+            return toDoContext.ToDos.Include(x => x.User).ToList();
         }
 
         public List<ToDo> ShowListOfIsActive()
@@ -50,8 +50,19 @@ namespace ListingToDos.Repositories
             }
         }
 
-        public void CreateNewTodo(ToDo ToDo)
+        public void CreateNewTodo(ToDo ToDo, string Name)
         {
+            var oneUser = GetAUser(Name);
+            if(oneUser == null)
+            {
+                var userObject = new User();
+                userObject.Name = Name;
+                ToDo.User = userObject;
+            }
+            else
+            {
+                ToDo.User = oneUser;
+            }
             toDoContext.ToDos.Add(ToDo);
             toDoContext.SaveChanges();
         }
@@ -77,11 +88,21 @@ namespace ListingToDos.Repositories
             toDoContext.SaveChanges();
         }
 
-        public void EditAListItem(ToDo todo, long index)
+        public void EditAListItem(ToDo todo, long index, string Name)
         {
-            ToDo t = toDoContext.ToDos.FirstOrDefault(x => x.ToDoId == index);
+            //ToDo t = toDoContext.ToDos.FirstOrDefault(x => x.ToDoId == index);
+            ToDo t = toDoContext.ToDos.Include(x => x.User).FirstOrDefault(x => x.ToDoId == index);
             t.Title = todo.Title;
-            t.User = todo.User;
+
+            var oneUser = GetAUser(Name);
+            if (oneUser == null)
+            {
+                var newUser = new User();
+                newUser.Name = Name;
+                t.User = newUser;
+            }
+            t.User = oneUser;
+
             t.IsDone = todo.IsDone;
             t.IsUrgent = todo.IsUrgent;
             toDoContext.SaveChanges();
@@ -90,12 +111,22 @@ namespace ListingToDos.Repositories
         public ToDo GetAListItem(long index)
         {
             //1 db todo-t adunk vissza
-            return toDoContext.ToDos.FirstOrDefault(x => x.ToDoId == index);
+            return toDoContext.ToDos.Include(x => x.User).FirstOrDefault(x => x.ToDoId == index);
         }
 
-        public User GetAUser(long index)
+        public List<ToDo> GetAUsersListItem(long id)
         {
-            return toDoContext.Users.FirstOrDefault(x => x.UserId == index);
+            return toDoContext.ToDos.Where(t => t.User.UserId == id).ToList();
+        }
+
+        public User GetAUser(string Name)
+        {
+            return toDoContext.Users.FirstOrDefault(x => x.Name == Name);
+        }
+
+        public List<ToDo> GetASearchedElement(string searchedString)
+        {
+            return toDoContext.ToDos.Where(t => t.Title.Contains(searchedString)).ToList();
         }
     }
 }

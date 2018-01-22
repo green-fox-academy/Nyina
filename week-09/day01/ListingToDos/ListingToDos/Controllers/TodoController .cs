@@ -57,9 +57,9 @@ namespace ListingToDos.Controllers
         }
 
         [HttpPost("/todo/add")]
-        public IActionResult CreateListElement(ToDo toDo)
+        public IActionResult CreateListElement(ToDo toDo, string Name)
         {
-            toDoRepository.CreateNewListItem(toDo);
+            toDoRepository.CreateNewTodo(toDo, Name);
             return Redirect("/todo");
         }
 
@@ -80,10 +80,22 @@ namespace ListingToDos.Controllers
         }
 
         [HttpPost("/{id}/edit")]
-        public IActionResult CreateListElement(ToDo toDo, long id)
+        public IActionResult CreateListElement(ToDo toDo, long id, string Name)
         {
-            toDoRepository.EditAListItem(toDo, id);
+            toDoRepository.EditAListItem(toDo, id, Name);
             return Redirect("/todo");
+        }
+
+        [HttpGet("/{id}/useritems")]
+        public IActionResult GetUsersItems(long id)
+        {
+            return View("UsersItems", toDoRepository.GetAUsersListItem(id));
+        }
+
+        [HttpPost("/todo")]
+        public IActionResult GetListItems(string searchedString)
+        {
+            return View("List", toDoRepository.GetASearchedElement(searchedString));
         }
     }
 }
