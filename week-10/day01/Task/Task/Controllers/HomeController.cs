@@ -36,7 +36,7 @@ namespace Task.Controllers
             }
             return Json(new { welcome_message = string.Format("Oh, hi there {0}, my dear {1}!", name, title) });
         }
-    
+
         [HttpGet("/appenda/{appendable}")]
         public IActionResult AppendA(string appendable)
         {
@@ -48,7 +48,7 @@ namespace Task.Controllers
             return Json(new { myword = appendable + "a" });
         }
 
-        [HttpPost("dountil/{what}")]
+        [HttpPost("/dountil/{what}")]
         public IActionResult DoUntil(string what, [FromBody]Num Num)
         {
             if (Num.Until == null)
@@ -76,6 +76,40 @@ namespace Task.Controllers
                 return Json(new { received = Num.Until, result = factorial });
             }
             return NotFound();
+        }
+
+        [HttpPost("/arrays/{what}")]
+        public IActionResult Arrays([FromBody]string what, [FromBody]Arrays arrays)
+        {
+            if (what.Equals("sum"))
+            {
+                int result = 0;
+                foreach (var element in arrays.Numbers)
+                {
+                    result += element;
+                }
+                return Json(new { result = result });
+            }
+            if (what.Equals("multiply"))
+            {
+                int result = 1;
+                foreach (var element in arrays.Numbers)
+                {
+                    result *= element;
+                }
+                return Json(new { result = result });
+            }
+            if (what.Equals("double"))
+            {
+                int[] result = { 0 };
+                for (int i = 0; i < arrays.Numbers.Count(); i++)
+                {
+                    arrays.Numbers[i] =  arrays.Numbers[i] * 2;
+                }
+                return Json(new { result = arrays.Numbers });
+            }
+            //return NotFound();
+            return Json(new { error = "Please provide a number!" });
         }
     }
 }
