@@ -78,10 +78,10 @@ namespace Task.Controllers
             return NotFound();
         }
 
-        [HttpPost("/arrays/{what}")]
-        public IActionResult Arrays([FromBody]string what, [FromBody]Arrays arrays)
+        [HttpPost("/arrays")]
+        public IActionResult Arrays([FromBody]Arrays arrays)
         {
-            if (what.Equals("sum"))
+            if (arrays.What.Equals("sum"))
             {
                 int result = 0;
                 foreach (var element in arrays.Numbers)
@@ -90,26 +90,72 @@ namespace Task.Controllers
                 }
                 return Json(new { result = result });
             }
-            if (what.Equals("multiply"))
+            if (arrays.What.Equals("multiply"))
             {
                 int result = 1;
                 foreach (var element in arrays.Numbers)
                 {
                     result *= element;
                 }
+                //a received = arrays nem kell, csak ha az objectet és what és annak értékét is ki akarom írni
+                //return Json(new { received = arrays, result = result });
                 return Json(new { result = result });
             }
-            if (what.Equals("double"))
+            if (arrays.What.Equals("double"))
             {
-                int[] result = { 0 };
                 for (int i = 0; i < arrays.Numbers.Count(); i++)
                 {
-                    arrays.Numbers[i] =  arrays.Numbers[i] * 2;
+                    arrays.Numbers[i] = arrays.Numbers[i] * 2;
                 }
                 return Json(new { result = arrays.Numbers });
             }
-            //return NotFound();
             return Json(new { error = "Please provide a number!" });
+        }
+
+        [HttpPost("/translate")]
+        public IActionResult CamelIzer([FromBody]Camel camel)
+        {
+            if (camel.Text != null)
+            {
+                string[] sentence = camel.Text.Split(' ');
+
+                foreach (var word in sentence)
+                {
+                    string temp = "";
+                    for (int i = 0; i < word.Length; i++)
+                    {
+                        temp += word[i];
+
+                        if (word[i].Equals("a"))
+                        {
+                            string first = string.Concat(word[i], "va");
+                            temp = first;
+                        }
+                        if (word[i].Equals("á"))
+                        {
+                            string second = string.Concat(word[i], "vá");
+                            temp = second;
+                        }
+                        if (word[i].Equals("e"))
+                        {
+                            //string third = string.Concat(word[i], "ve");
+                            string third = word[i] + "ve";
+                            temp = third;
+                        }
+                        if (word[i].Equals("é"))
+                        {
+                            string fourth = string.Concat(word[i], "vé");
+                            temp = fourth;
+                        }
+                        //else
+                        //{
+                        //    temp += word[i];
+                        //}
+                    }
+                    return Json(new { translated = temp, lang = "teve" });
+                }
+            }
+            return Json(new { error = "Avadj evegy movondavatovot!" });
         }
     }
 }

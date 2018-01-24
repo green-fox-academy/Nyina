@@ -27,7 +27,8 @@ namespace ListingToDos.Controllers
 
 
         [HttpGet("/todo")]
-        //Ha az Action neve azonos lenne egy másikkal (itt: List), akkor paraméterben 1-nek meg kell adni ""-be a Listet, utána pedig a methodot
+        //Ha az Action neve azonos lenne egy másikkal (itt: List, ami ki van kommentelve), 
+        //akkor paraméterben 1-nek meg kell adni ""-be a Listet, utána pedig a methodot
         public IActionResult ToDo()
         {
             return View("List", toDoRepository.ShowList());
@@ -75,7 +76,8 @@ namespace ListingToDos.Controllers
         public IActionResult Edit(long id)
         {
             //Ha id van az URL-ben, akkor azt kell paraméterbe is beadni (a deletnél is úgy volt!)
-            //Úgy kell megadni, mint a ToDo methodnál, csak mivel a method nevével (Edit) egyezik a View neve, nem kell ez utóbbit odaírni már
+            //Úgy kell megadni, mint a ToDo methodnál, csak mivel a method nevével (Edit)
+            //egyezik a View neve, nem kell ez utóbbit odaírni már
             return View(toDoRepository.GetAListItem(id));
         }
 
@@ -92,10 +94,17 @@ namespace ListingToDos.Controllers
             return View("UsersItems", toDoRepository.GetAUsersListItem(id));
         }
 
-        [HttpPost("/todo")]
-        public IActionResult GetListItems(string searchedString)
+        [HttpGet("/search")]
+        public IActionResult GetASearchedElement()
         {
-            return View("List", toDoRepository.GetASearchedElement(searchedString));
+            return View("List");
+        }
+
+        [HttpPost("/search")]
+        public IActionResult GetASearchedElement(string searchedString)
+        {
+            toDoRepository.GetASearchedElement(searchedString);
+            return View("List");
         }
     }
 }
