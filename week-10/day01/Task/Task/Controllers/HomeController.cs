@@ -121,7 +121,7 @@ namespace Task.Controllers
 
                 foreach (var word in sentence)
                 {
-                    string temp = "";
+                    string temp =  "" ;
                     for (int i = 0; i < word.Length; i++)
                     {
                         temp += word[i];
@@ -151,6 +151,7 @@ namespace Task.Controllers
                         //{
                         //    temp += word[i];
                         //}
+
                     }
                     return Json(new { translated = temp, lang = "teve" });
                 }

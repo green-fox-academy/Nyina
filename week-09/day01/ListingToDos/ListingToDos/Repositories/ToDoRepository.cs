@@ -126,7 +126,10 @@ namespace ListingToDos.Repositories
 
         public List<ToDo> GetASearchedElement(string searchedString)
         {
-            return toDoContext.ToDos.Where(t => t.Title.Contains(searchedString)).ToList();
+            //return toDoContext.ToDos.Include(x => x.User).Where(t => t.Title.Contains(searchedString)).ToList();
+            return toDoContext.ToDos.Include(x => x.User)
+                .Where(t => (t.Title.Contains(searchedString)) || (t.Date.Contains(searchedString)) || (t.User.Name.Contains(searchedString)))
+                .ToList();
         }
     }
 }

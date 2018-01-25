@@ -94,17 +94,11 @@ namespace ListingToDos.Controllers
             return View("UsersItems", toDoRepository.GetAUsersListItem(id));
         }
 
-        [HttpGet("/search")]
-        public IActionResult GetASearchedElement()
-        {
-            return View("List");
-        }
 
         [HttpPost("/search")]
         public IActionResult GetASearchedElement(string searchedString)
         {
-            toDoRepository.GetASearchedElement(searchedString);
-            return View("List");
+            return View("List", toDoRepository.GetASearchedElement(searchedString));
         }
     }
 }
