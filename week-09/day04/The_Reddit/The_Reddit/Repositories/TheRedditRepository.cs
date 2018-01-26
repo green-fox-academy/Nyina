@@ -21,32 +21,29 @@ namespace The_Reddit.Repositories
         {
             //A context todo dbset-jét listává kell alakítani
             //és eztv a controllerben meg kell hívni
-            return theRedditContext.PoSts.ToList();
+            return theRedditContext.PoSts.Include(x => x.User).ToList();
         }
 
-        public User GetUser(string name)
+        public void CreateANewContent(Post post, string Name)
         {
-            theRedditContext.PoSts.Load();
-            return theRedditContext.Users.FirstOrDefault(u => u.Name.Equals(name));
-        }
-
-        //public Post GetPost(long id)
-        //{
-        //    return theRedditContext.PoSts.FirstOrDefault(p => p.PostId == id);
-        //}
-
-        public void CreatePostToUser(string name, Post post)
-        {
-            post.User = GetUser(name);
+            var oneUser = GetUser(Name);
+            if (oneUser == null)
+            {
+                oneUser.Name = Name;
+                post.User = oneUser;
+            }
+            else
+            {
+                post.User = oneUser;
+            }
             theRedditContext.PoSts.Add(post);
             theRedditContext.SaveChanges();
         }
 
-        //public void CreateNewListItem(Post post)
-        //{
-        //    theRedditContext.PoSts.Add(post);
-        //    theRedditContext.SaveChanges();
-        //}
+        public User GetUser(string name)
+        {
+            return theRedditContext.Users.FirstOrDefault(u => u.Name.Equals(name));
+        }
 
         public void AddScore(Post post)
         {

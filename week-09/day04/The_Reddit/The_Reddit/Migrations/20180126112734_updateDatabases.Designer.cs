@@ -11,9 +11,10 @@ using The_Reddit.Entities;
 namespace The_Reddit.Migrations
 {
     [DbContext(typeof(TheRedditContext))]
-    partial class TheRedditContextModelSnapshot : ModelSnapshot
+    [Migration("20180126112734_updateDatabases")]
+    partial class updateDatabases
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

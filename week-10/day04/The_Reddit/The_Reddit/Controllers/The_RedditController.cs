@@ -26,18 +26,24 @@ namespace The_Reddit.Controllers
             return Json(new { posts = the_RedditRepository.GetList() });
         }
 
-        [HttpPost("posts")]
-        public IActionResult Add([FromBody]Post post)
+        //[HttpPost("posts")]
+        //public IActionResult Add([FromBody]Post post)
+        //{
+        //    the_RedditRepository.AddPost(post);
+        //    return Json(the_RedditRepository.GetAPost());
+        //}
+
+        [HttpPost("post")]
+        public IActionResult Add([FromBody]ModelForMethodsDatas modelForMethodsDatas)
         {
-            the_RedditRepository.AddPost(post);
-            return Json(the_RedditRepository.GetAPost());
+            return Json(new { posts = the_RedditRepository.AddPostWithUsers(modelForMethodsDatas) });
         }
 
-        [HttpPost("posts/{name}")]
-        public IActionResult AddPostAndUser([FromBody]Post post, [FromQuery]string Name)
+
+        [HttpPost("posts")]
+        public IActionResult AddPostAndUser(long id)
         {
-            the_RedditRepository.AddPostWithUsers(post, Name);
-            return Json(the_RedditRepository.GetAPost());
+            return Json(the_RedditRepository.GetAPostWithUser(id));
         }
     }
 }

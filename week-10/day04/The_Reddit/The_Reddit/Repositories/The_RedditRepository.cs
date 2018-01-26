@@ -35,11 +35,18 @@ namespace The_Reddit.Repositories
             return theRedditContext.RedditU.FirstOrDefault(x => x.UserName == Name);
         }
 
-        public void AddPostWithUsers(Post post, string Name)
+        public void AddPostWithUsers(ModelForMethodsDatas mothodDatas)
         {
-            var oneUser = GetAUser(Name);
-            post.User = oneUser;
-            theRedditContext.RedditP.Add(post);
+            var onePost = new Post();
+            onePost.PostId = mothodDatas.PostId;
+            onePost.Title = mothodDatas.Title;
+            onePost.Url = mothodDatas.Url;
+            onePost.Timastamp = mothodDatas.Timastamp;
+            onePost.Score = mothodDatas.Score;
+            onePost.User.UserName = mothodDatas.UserName;
+            onePost.User.Vote = mothodDatas.Vote;
+
+            theRedditContext.Add(onePost);
             theRedditContext.SaveChanges();
         }
 
