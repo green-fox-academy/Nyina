@@ -1,35 +1,51 @@
-﻿@model List<The_Reddit.Models.Post>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Aze Reddit</title>
-</head>
-<body>
-    <p><a href="/posts/add">Add new post</a></p>
-    <h1>Posts</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>SCORE</th>
-                <th>Actions</th>
-                <th>Content</th>
-                <th>User</th>
-            </tr>
-        </thead>
-        <tbody>
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@*@model List<The_Reddit.Models.Post>*@
+@model IPagedList<The_Reddit.Models.Post>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Aze Reddit</title>
+    </head>
+    <body>
+        <p><a href="/posts/add">Add new post</a></p>
+        <h1>Posts</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>SCORE</th>
+                    <th>Actions</th>
+                    <th>Content</th>
+                    <th>Date</th>
+                    <th>User</th>
+                </tr>
+            </thead>
+            <tbody>
 
-                @foreach (var element in @Model)
-                 {
-                    @if(element.User != null)
-                    {
-                        <tr>
-                            <td>@element.Score</td>
-                            <td><a href="/@element.Score/score_add">+</a><a href="/@element.Score/score_decrease">-</a></td>
-                            <td>@element.Content</td>
-                            <td>@element.User.Name</td>
-                        </tr>
-                    }
-                 }
+        @foreach (var element in @Model)
+        {
+            @if (element.User != null)
+            {
+                <tr>
+                    <td>@element.Score</td>
+                    <td><a href="/posts/score_add/@element.PostId/">+</a><a href="/posts/score_decrease/@element.PostId/">-</a></td>
+                    <td>@element.Content</td>
+                    <td>@element.Date</td>
+                    <td>@element.User.Name</td>
+                </tr>
+            }
+        }
+
         </tbody>
     </table>
+
+    <br />
+        <div id='Paging' style="text-align:center">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+            of @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Showlist", new { page }));
+        </div>
+    <p><a href="">Back</a></p>
+
 </body>
 </html>
+

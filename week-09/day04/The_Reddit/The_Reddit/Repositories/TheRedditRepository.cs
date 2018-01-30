@@ -21,7 +21,17 @@ namespace The_Reddit.Repositories
         {
             //A context todo dbset-jét listává kell alakítani
             //és eztv a controllerben meg kell hívni
-            return theRedditContext.PoSts.Include(x => x.User).ToList();
+
+            //return theRedditContext.PoSts.Include(x => x.User).ToList();
+            //var item = theRedditContext.PoSts.OrderByDescending(x => x.Score).ToList();
+
+            var item = theRedditContext.PoSts.Include(x => x.User).OrderByDescending(x => x.Score).ToList();
+            return item;
+        }
+
+        public User GetUser(string name)
+        {
+            return theRedditContext.Users.FirstOrDefault(u => u.Name.Equals(name));
         }
 
         public void CreateANewContent(Post post, string Name)
@@ -29,8 +39,9 @@ namespace The_Reddit.Repositories
             var oneUser = GetUser(Name);
             if (oneUser == null)
             {
-                oneUser.Name = Name;
-                post.User = oneUser;
+                var postObject = new User();
+                postObject.Name = Name;
+                post.User = postObject;
             }
             else
             {
@@ -40,21 +51,50 @@ namespace The_Reddit.Repositories
             theRedditContext.SaveChanges();
         }
 
-        public User GetUser(string name)
+        //post lita userid szerint és userrel együtt
+        public List<Post> GetLoggedInUsersPost(int id)
         {
-            return theRedditContext.Users.FirstOrDefault(u => u.Name.Equals(name));
+            return theRedditContext.PoSts.Include(u => u.User)
+                .Where(t => t.PostId == id)
+                .ToList();
         }
 
-        public void AddScore(Post post)
+        //ugyanaz, mint az előző csak név alapján szűr
+        public List<Post> GetAUsersListItem(string name)
         {
-            post.Score++;
+            return theRedditContext.PoSts.Where(t => t.User.Name == name).ToList();
+        }
+
+
+        public void AddScore(long id)
+        {
+            var item = theRedditContext.PoSts.FirstOrDefault(t => t.PostId == id);
+            item.Score++;
+            //theRedditContext.PoSts.Update(Item);
             theRedditContext.SaveChanges();
         }
 
-        public void DecreaseScore(Post post)
+        public void DecreaseScore(long id)
         {
-            post.Score--;
+            var item = theRedditContext.PoSts.FirstOrDefault(t => t.PostId == id);
+            item.Score--;
+            //theRedditContext.PoSts.Update(Item);
             theRedditContext.SaveChanges();
         }
+
+
+        //public List<Post> top5()
+        //{
+        //    var item = theRedditContext.PoSts.OrderByDescending(x => x.Score).ToList();
+        //    var topElements = new List<Post>();
+        //    for (int i = 0; i < 5; i++)
+        //    {
+        //        topElements.Add(topElements[i]);
+        //    }
+        //    return topElements;
+        //}
+
+
+
     }
 }

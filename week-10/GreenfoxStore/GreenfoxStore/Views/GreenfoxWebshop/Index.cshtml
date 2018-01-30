@@ -1,0 +1,57 @@
+﻿@model GreenfoxStore.Viewmodels.GreenfoxWebshopViewmodel
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title>Greenfox Fashion Webstore</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Greenfox Fashion Webstore</h1>
+
+    <form action="/warehouse/summary" method="post">
+        <select type="text" name="productName">
+            <option>Select item name</option>
+            @foreach (var element in @Model.ItemNames)
+            {
+                <option value="@element">@element</option>
+            }
+        </select>
+
+        <select type="text" name="size">
+            <option>Select size</option>
+            @foreach (var element in @Model.Sizes)
+            {
+                <option value="@element">@element</option>
+            }
+        </select>
+
+        <input type="text" name="amount" value="">
+
+        <input type="submit" value="GET TOTAL">
+    </form>
+    <br />
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ItemName</th>
+                <th>Manufacturer</th>
+                <th>Category</th>
+                <th>Size</th>
+                <th>UnitPrice</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var element in @Model.GreenfoxTable)
+            {
+                <tr>
+                    <td>@element.ItemName</td>
+                    <td>@element.Manufacturer</td>
+                    <td>@element.Category</td>
+                    <td>@element.Size</td>
+                    <td>@element.UnitPrice</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

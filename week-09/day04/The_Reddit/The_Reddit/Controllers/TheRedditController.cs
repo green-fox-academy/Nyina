@@ -6,13 +6,17 @@ using Microsoft.AspNetCore.Mvc;
 using The_Reddit.Models;
 using The_Reddit.Repositories;
 using The_Reddit.Viewmodels;
+using X.PagedList;
+using X.PagedList.Mvc;
 
 namespace The_Reddit.Controllers 
 {
+    [Route("")]
     public class TheRedditController : Controller
     {
         private TheRedditRepository theRedditRepository;
         //private TheRedditService theRedditService;
+
 
         public TheRedditController(TheRedditRepository theRedditRepository) 
             //,TheRedditService theRedditService)
@@ -21,19 +25,44 @@ namespace The_Reddit.Controllers
             //this.theRedditService = theRedditService;
         }
 
-        [HttpGet("/")]
-        //Index action, hogy egyből átdobjon a posts-ra
+        [HttpGet("")]
         public IActionResult Index()
         {
-            return Redirect("posts");
+            return View();
+        }
+
+        [HttpPost("")]
+        public IActionResult Login(string name)
+        {
+            //theRedditRepository.Login(name);
+
+            if (theRedditRepository.GetUser(name) is null)
+            {
+                return View("Index");
+            }
+            if (name.Equals("Nyina"))
+            {
+                return Redirect("/posts");
+            }
+            else
+            {
+                return View("List", theRedditRepository.GetAUsersListItem(name));
+                //Session["username"] = name;
+                //return Redirect("/posts");
+            }
         }
 
 
         [HttpGet("/posts")]
         //Ha az Action neve azonos lenne egy másikkal (itt: List), akkor paraméterben 1-nek meg kell adni ""-be a Listet, utána pedig a methodot
-        public IActionResult Showlist()
+        public IActionResult Showlist(int? page)
         {
-            return View("List", theRedditRepository.ShowList());
+            //Ha nem lenne lapozó:
+            //return View("List", theRedditRepository.ShowList());
+
+            var pageNumber = page ?? 1;
+            var list = theRedditRepository.ShowList();
+            return View("List", list.ToPagedList(pageNumber, 5));
         }
 
         [HttpGet("/posts/add")]
@@ -49,21 +78,20 @@ namespace The_Reddit.Controllers
             return Redirect("/posts");
         }
 
-
-
-        [HttpPost("/score_add")]
-        public IActionResult AddScore(Post post)
+        [HttpGet("/posts/score_add/{id}")]
+        public IActionResult AddScore(long id)
         {
-            theRedditRepository.AddScore(post);
+            theRedditRepository.AddScore(id);
             return Redirect("/posts");
         }
 
-        [HttpPost("/score_decrease")]
-        public IActionResult DecreaseScore(Post post)
+        [HttpGet("/posts/score_decrease/{id}")]
+        public IActionResult DecreaseScore(long id)
         {
-            theRedditRepository.DecreaseScore(post);
+            theRedditRepository.DecreaseScore(id);
             return Redirect("/posts");
         }
+
 
     }
 }

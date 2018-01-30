@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "The_Reddit", "The_Reddit\The_Reddit.csproj", "{8A0D363B-E591-4C5B-B24B-6659C7645558}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GreenfoxStore", "GreenfoxStore\GreenfoxStore.csproj", "{15803D32-D888-4F93-BAD0-2CA694336DAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8A0D363B-E591-4C5B-B24B-6659C7645558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8A0D363B-E591-4C5B-B24B-6659C7645558}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8A0D363B-E591-4C5B-B24B-6659C7645558}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8A0D363B-E591-4C5B-B24B-6659C7645558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15803D32-D888-4F93-BAD0-2CA694336DAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15803D32-D888-4F93-BAD0-2CA694336DAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15803D32-D888-4F93-BAD0-2CA694336DAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15803D32-D888-4F93-BAD0-2CA694336DAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B25EC547-6A28-4492-9BCE-9CCFB9832A6F}
+		SolutionGuid = {B9F7271D-6000-4D07-83EF-3C6E304AD017}
 	EndGlobalSection
 EndGlobal
