@@ -29,10 +29,10 @@ namespace GreenfoxStore.Controllers
             return View(greenfoxWebshopRepository.GetSummary(productName, size, amount));
         }
 
-        //[HttpGet ("warehouse/query")]
-        //public IActionResult Summary()
-        //{
-        //    return Ok();
-        //}
+        [HttpGet("warehouse/query")]
+        public IActionResult Query([FromQuery]double price, string type)
+        {
+            return Json(new { result = "ok", clothes = greenfoxWebshopRepository.GetItemsFromQuery(price, type) });
+        }
     }
 }

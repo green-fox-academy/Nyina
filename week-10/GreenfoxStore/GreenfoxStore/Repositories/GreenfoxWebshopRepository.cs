@@ -70,5 +70,24 @@ namespace GreenfoxStore.Repositories
             };
             return sumProduct;
         }
+
+        public List<GreenfoxWebshop> GetItemsFromQuery(double price, string type)
+        {
+            List<GreenfoxWebshop> filteredItems = new List<GreenfoxWebshop>();
+
+            if (type.Equals("equal"))
+            {
+                filteredItems = greenfoxWebshopContext.GreenfoxWebshops.Where(x => x.UnitPrice == price).ToList();
+            }
+            else if (price.Equals("lower"))
+            {
+                filteredItems = greenfoxWebshopContext.GreenfoxWebshops.Where(x => x.UnitPrice < price).ToList();
+            }
+            else if (price.Equals("higher"))
+            {
+                filteredItems = greenfoxWebshopContext.GreenfoxWebshops.Where(x => x.UnitPrice > price).ToList();
+            }
+            return filteredItems;
+        }
     }
 }
