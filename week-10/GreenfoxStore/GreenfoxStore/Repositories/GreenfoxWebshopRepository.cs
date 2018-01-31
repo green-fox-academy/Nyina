@@ -79,11 +79,11 @@ namespace GreenfoxStore.Repositories
             {
                 filteredItems = greenfoxWebshopContext.GreenfoxWebshops.Where(x => x.UnitPrice == price).ToList();
             }
-            else if (price.Equals("lower"))
+            else if (type.Equals("lower"))
             {
                 filteredItems = greenfoxWebshopContext.GreenfoxWebshops.Where(x => x.UnitPrice < price).ToList();
             }
-            else if (price.Equals("higher"))
+            else if (type.Equals("higher"))
             {
                 filteredItems = greenfoxWebshopContext.GreenfoxWebshops.Where(x => x.UnitPrice > price).ToList();
             }
