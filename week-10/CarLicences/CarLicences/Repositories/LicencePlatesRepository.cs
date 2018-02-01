@@ -22,9 +22,9 @@ namespace CarLicences.Repositories
             return licencePlatesContext.licencePlates.ToList();
         }
 
-        public List<LicencePlatesModel> GetSearchedItem(string q)
+        public List<LicencePlatesModel> GetSearchedItem(string searchedItem)
         {
-            return GetAllItems().Where(x => x.Plate.Contains(q)).ToList();
+            return GetAllItems().Where(x => x.Plate.Contains(searchedItem)).ToList();
         }
 
         public List<LicencePlatesModel> GetPolice()
@@ -43,7 +43,7 @@ namespace CarLicences.Repositories
             {
                 return GetSearchedItem(searchModel.SearchedItem);
             }
-            else if (searchModel.Police == 1 )
+            else if (searchModel.Police == 1)
             {
                 return GetPolice();
             }
