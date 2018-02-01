@@ -1,0 +1,35 @@
+﻿@model System.Collections.Generic.List<PracticeLicences.Models.LicencesModel>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title>Licence Plates</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <form action="/search" method="get">
+        <input type="text" name="Q" value="" />
+        <button type="submit">Filter</button>
+        <a href="search?police=1">Police Only</a>
+        <a href="search?diplomat=1">Diplomat Only</a>
+    </form>
+    <table>
+        <tr>
+            <td>Plate</td>
+            <td>Brand</td>
+            <td>Model</td>
+            <td>Color</td>
+            <td>Year</td>
+        </tr>
+        @foreach (var element in @Model)
+        {
+            <tr>
+                <td>@element.Plate</td>
+                <td><a href="/search/@element.CarBrand">@element.CarBrand</a></td>
+                <td>@element.CarModel</td>
+                <td>@element.Color</td>
+                <td>@element.Year</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

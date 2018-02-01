@@ -1,0 +1,33 @@
+﻿@model PracticeWebshop.Models.Summary
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title>Greenfox Fashion Webstore Summary</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Greenfox Fashion Webstore Summary</h1>
+    <br />
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ItemName</th>
+                <th>Manufacturer</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Sub-total price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.ItemName</td>
+                <td>@Model.Manufacturer</td>
+                <td>@Model.Category</td>
+                <td>@Model.Amount</td>
+                <td>@Model.TotalPrice</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/warehouse">Back to the main</a>
+</body>
+</html>
