@@ -1,0 +1,48 @@
+﻿@model Spaceship.Viewmodels.SpaceshipViewmodel
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title>Space Transporter</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Space Transporter</h1>
+    <table>
+        <tr>
+            <td>Planet</td>
+            <td>Population</td>
+            <td>Spaceship location</td>
+            <td>People on ship</td>
+        </tr>
+        @foreach (var element in Model.Planets)
+        {
+            <tr>
+                <td>@element.Name</td>
+                <td>@element.Population</td>
+                <td>@if(Model.Spaceship.Planet.Equals(element.Name))
+                    {
+                    <a href="/toplanet/@element.Id"> to planet </a>
+                    <a href="/toship/@element.Id">to ship</a>
+                }
+                else
+                {
+                    <form action="/movehere/@element.Id" method="post">
+                        <input type="submit" value="Move here">
+                    </form>
+                }
+                </td>
+
+                <td>@if (@Model.Spaceship.Planet.Equals(element.Name))
+                {
+                    <p>@Model.Spaceship.Utilization</p>
+                }
+                else
+                {
+                    <p>-</p>
+                }
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
