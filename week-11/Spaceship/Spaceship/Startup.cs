@@ -21,6 +21,7 @@ namespace Spaceship
         {
             services.AddMvc();
             services.AddScoped<SpaceshipRepository>();
+            services.AddScoped<SpaceshipContext>();
             services.AddDbContext <SpaceshipContext> (options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Planet;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
 
         }

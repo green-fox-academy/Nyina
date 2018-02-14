@@ -43,16 +43,16 @@ namespace Spaceship.Repositories
             return spaceshipContext.Planets.FirstOrDefault(x => x.Id == id);
         }
 
-        public void AddNewPlanet(long id)
+        public void AddNewPlanet(int id)
         {
-            if (GetShip().Planet !=GetAPlanet(id).Name)
+            if (!GetShip().Planet.Equals(GetAPlanet(id).Name))
             {
                 GetShip().Planet = GetAPlanet(id).Name;
+                spaceshipContext.SaveChanges();
             }
-            spaceshipContext.SaveChanges();
         }
 
-        public void MoveToTheShip(long id)
+        public void MoveToTheShip(int id)
         {
             SpaceShip spaceship = new SpaceShip();
             var filteredPlanet = GetAPlanet(id);
@@ -61,11 +61,16 @@ namespace Spaceship.Repositories
             {
                 var Capacity = spaceship.MaxCapacity - spaceship.Utilization;
                 filteredPlanet.Population = filteredPlanet.Population - Capacity;
-                spaceshipContext.SaveChanges();
+                spaceship.Utilization = spaceship.MaxCapacity;
             }
+            else
+            {
+                spaceship.Utilization = spaceship.MaxCapacity;
+            }
+            spaceshipContext.SaveChanges();
         }
 
-        public void MoveToPlanet(long id)
+        public void MoveToPlanet(int id)
         {
             SpaceShip spaceship = new SpaceShip();
             var filteredPlanet = GetAPlanet(id);

@@ -24,25 +24,25 @@ namespace Spaceship.Controllers
             return View("Index", spaceshipRepository.GetAllPlanetsAndShip());
         }
 
-        [HttpPost("/movehere/{id}")]
-        public IActionResult Add(long id)
+        [HttpPost("movehere/{id}")]
+        public IActionResult Add([FromRoute]int id)
         {
             spaceshipRepository.AddNewPlanet(id);
-            return Redirect("");
+            return RedirectToAction("Index");
         }
 
-        [HttpGet("/toship/{id}")]
-        public IActionResult MoveShip([FromRoute]long id)
+        [HttpGet("toship/{id}")]
+        public IActionResult MoveShip([FromRoute]int id)
         {
             spaceshipRepository.MoveToTheShip(id);
-            return Redirect("");
+            return RedirectToAction("Index");
         }
 
-        [HttpGet("/toplanet/{id}")]
-        public IActionResult MovePlanet([FromRoute]long id)
+        [HttpGet("toplanet/{id}")]
+        public IActionResult MovePlanet([FromRoute]int id)
         {
             spaceshipRepository.MoveToPlanet(id);
-            return Redirect("/");
+            return RedirectToAction("Index");
         }
     }
 }

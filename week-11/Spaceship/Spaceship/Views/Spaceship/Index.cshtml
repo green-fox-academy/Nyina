@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Space Transporter</h1>
-    <table>
+    <table border="1">
         <tr>
             <td>Planet</td>
             <td>Population</td>
@@ -19,27 +19,29 @@
             <tr>
                 <td>@element.Name</td>
                 <td>@element.Population</td>
-                <td>@if(Model.Spaceship.Planet.Equals(element.Name))
+                <td>
+                    @if(Model.Spaceship.Planet.Equals(element.Name))
                     {
                     <a href="/toplanet/@element.Id"> to planet </a>
                     <a href="/toship/@element.Id">to ship</a>
-                }
-                else
-                {
+                    }
+                    else
+                    {
                     <form action="/movehere/@element.Id" method="post">
-                        <input type="submit" value="Move here">
+                        <button type="submit" value="Submit">Move here</button>
                     </form>
-                }
+                    }
                 </td>
 
-                <td>@if (@Model.Spaceship.Planet.Equals(element.Name))
-                {
+                <td>
+                    @if(@Model.Spaceship.Planet.Equals(element.Name))
+                    {
                     <p>@Model.Spaceship.Utilization</p>
-                }
-                else
-                {
+                    }
+                    else
+                    {
                     <p>-</p>
-                }
+                    }
                 </td>
             </tr>
         }
